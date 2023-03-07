@@ -3,12 +3,12 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:39552",
+      "applicationUrl": "http://localhost:3765",
       "sslPort": 0
     }
   },
   "profiles": {
-    "PrettyUserAuthorization": {
+    "IntegorAuthorization": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

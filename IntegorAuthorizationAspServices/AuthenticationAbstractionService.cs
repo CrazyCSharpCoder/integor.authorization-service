@@ -23,7 +23,6 @@ namespace PrettyUserAuthorizationAspServices
 	{
 		private HttpContext _http;
 
-		private IAuthenticationConfigurationProvider _config;
 		private IHttpContextTokensAccessor _httpTokens;
 		private IResolveTokensService _tokenService;
 
@@ -31,7 +30,6 @@ namespace PrettyUserAuthorizationAspServices
 
 		public AuthenticationAbstractionService(
 			IHttpContextAccessor httpAccessor,
-			IAuthenticationConfigurationProvider authConfig,
 			IHttpContextTokensAccessor httpTokens,
 			IResolveTokensService tokenService,
 
@@ -39,7 +37,6 @@ namespace PrettyUserAuthorizationAspServices
 		{
 			_http = httpAccessor.HttpContext;
 
-			_config = authConfig;
 			_httpTokens = httpTokens;
 			_tokenService = tokenService;
 

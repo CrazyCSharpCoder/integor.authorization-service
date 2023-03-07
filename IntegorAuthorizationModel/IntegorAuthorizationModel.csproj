@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrettyUserAuthorizationModelOptions\PrettyUserAuthorizationModelOptions.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationModelOptions\IntegorAuthorizationModelOptions.csproj" />
   </ItemGroup>
 
 </Project>

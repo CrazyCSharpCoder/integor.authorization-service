@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspErrorHandling\AspErrorHandling.csproj" />
+    <ProjectReference Include="..\AspResponseDecoration\AspResponseDecoration.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationAspServices\IntegorAuthorizationAspServices.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationAspShared\IntegorAuthorizationAspShared.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationErrorHandling\IntegorAuthorizationErrorHandling.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationResponseDecoration\IntegorAuthorizationResponseDecoration.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationServices\IntegorAuthorizationServices.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationShared\IntegorAuthorizationShared.csproj" />
+    <ProjectReference Include="..\IntegorDataAnnotationsSettings\IntegorDataAnnotationsSettings.csproj" />
+  </ItemGroup>
+
+</Project>

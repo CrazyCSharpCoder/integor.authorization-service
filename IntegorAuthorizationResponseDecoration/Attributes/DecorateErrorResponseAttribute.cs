@@ -1,4 +1,7 @@
-﻿using AspResponseDecoration;
+﻿using System;
+using System.Linq;
+
+using AspResponseDecoration;
 
 namespace PrettyUserAuthorizationResponseDecoration.Attributes
 {
