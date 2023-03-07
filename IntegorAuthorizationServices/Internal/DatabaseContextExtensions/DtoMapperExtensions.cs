@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-using PrettyUserAuthorizationShared.Dto.Roles;
-using PrettyUserAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Dto.Roles;
+using IntegorAuthorizationShared.Dto.Users;
 
-namespace PrettyUserAuthorizationServices.Internal.DatabaseContextExtensions
+namespace IntegorAuthorizationServices.Internal.DatabaseContextExtensions
 {
 	internal static class DtoMapperExtensions
 	{

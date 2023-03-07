@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationShared.Services.Security.Password
+namespace IntegorAuthorizationShared.Services.Security.Password
 {
 	public interface IByteStringifyingService
 	{

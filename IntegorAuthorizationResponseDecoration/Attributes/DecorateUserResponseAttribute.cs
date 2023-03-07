@@ -1,4 +1,4 @@
-﻿namespace PrettyUserAuthorizationResponseDecoration.Attributes
+﻿namespace IntegorAuthorizationResponseDecoration.Attributes
 {
 	using Decorators;
 

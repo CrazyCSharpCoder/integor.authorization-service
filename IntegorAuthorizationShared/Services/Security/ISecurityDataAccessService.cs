@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-namespace PrettyUserAuthorizationShared.Services.Security
+namespace IntegorAuthorizationShared.Services.Security
 {
     public interface ISecurityDataAccessService
     {

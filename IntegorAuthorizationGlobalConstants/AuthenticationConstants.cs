@@ -1,4 +1,4 @@
-﻿namespace PrettyUserAuthorizationGlobalConstants
+﻿namespace IntegorAuthorizationGlobalConstants
 {
 	public static class AuthenticationConstants
 	{

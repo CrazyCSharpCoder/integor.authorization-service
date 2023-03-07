@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Http;
 
-using PrettyUserAuthorizationAspShared;
+using IntegorAuthorizationAspShared;
 
-namespace PrettyUserAuthorizationAspServices
+namespace IntegorAuthorizationAspServices
 {
 	public class HttpContextProcessedMarker : IHttpContextProcessedMarker
 	{

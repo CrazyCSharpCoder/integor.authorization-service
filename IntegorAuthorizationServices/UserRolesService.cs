@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationModel;
-using PrettyUserAuthorizationShared.Services;
+using IntegorAuthorizationModel;
+using IntegorAuthorizationShared.Services;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace PrettyUserAuthorizationServices
+namespace IntegorAuthorizationServices
 {
 	using DatabaseContext;
 	using Internal.DatabaseContextExtensions;
 
 	public class UserRolesService : IUserRolesService
 	{
-		private PrettyUserAuthorizationDbContext _context;
+		private IntegorAuthorizationDbContext _context;
 
-		public UserRolesService(PrettyUserAuthorizationDbContext context)
+		public UserRolesService(IntegorAuthorizationDbContext context)
 		{
 			_context = context;
 		}

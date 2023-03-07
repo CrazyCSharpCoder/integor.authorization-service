@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationModelOptions.Security
+namespace IntegorAuthorizationModelOptions.Security
 {
 	public static class SecurityDatabaseOptions
 	{

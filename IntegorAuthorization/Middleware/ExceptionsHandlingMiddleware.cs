@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using AspErrorHandling;
 using static AspErrorHandling.Helpers.ConvertResultShortcuts;
 
-namespace PrettyUserAuthorization.Middleware
+namespace IntegorAuthorization.Middleware
 {
 	public class ExceptionsHandlingMiddleware : IMiddleware
 	{

@@ -8,9 +8,9 @@ using Microsoft.Extensions.Configuration;
 
 using Microsoft.IdentityModel.Tokens;
 
-using PrettyUserAuthorizationAspShared.ConfigurationProviders;
+using IntegorAuthorizationAspShared.ConfigurationProviders;
 
-namespace PrettyUserAuthorizationAspServices.ConfigurationProviders
+namespace IntegorAuthorizationAspServices.ConfigurationProviders
 {
 	public class AuthenticationConfigurationProvider : IAuthenticationConfigurationProvider
     {

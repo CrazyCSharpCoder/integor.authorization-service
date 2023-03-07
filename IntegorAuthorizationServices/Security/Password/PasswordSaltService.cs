@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-using PrettyUserAuthorizationModelOptions.Security;
-using PrettyUserAuthorizationShared.Services.Security.Password;
+using IntegorAuthorizationModelOptions.Security;
+using IntegorAuthorizationShared.Services.Security.Password;
 
-namespace PrettyUserAuthorizationServices.Security.Password
+namespace IntegorAuthorizationServices.Security.Password
 {
 	public class PasswordSaltService : IPasswordSaltService
 	{

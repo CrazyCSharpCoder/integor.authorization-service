@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using AspErrorHandling;
 using AspErrorHandling.Converters;
 
-using PrettyUserAuthorizationResponseDecoration.Attributes;
+using IntegorAuthorizationResponseDecoration.Attributes;
 
-using PrettyUserAuthorizationShared.Dto.Users;
-using PrettyUserAuthorizationShared.Services;
+using IntegorAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Services;
 
-namespace PrettyUserAuthorization.Controllers
+namespace IntegorAuthorization.Controllers
 {
 	using static Constants.RouteNames.UserDataRouteNames;
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationErrorHandling.Internal
+namespace IntegorAuthorizationErrorHandling.Internal
 {
 	internal static class DatabaseErrorsConstants
 	{

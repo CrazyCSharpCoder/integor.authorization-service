@@ -3,7 +3,7 @@ using System.Linq;
 
 using AspResponseDecoration;
 
-namespace PrettyUserAuthorizationResponseDecoration.Attributes
+namespace IntegorAuthorizationResponseDecoration.Attributes
 {
 	using Decorators;
 

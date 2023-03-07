@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-using PrettyUserAuthorizationShared.Types;
-using PrettyUserAuthorizationShared.Services;
-using PrettyUserAuthorizationShared.Services.Unsafe;
-using PrettyUserAuthorizationShared.Helpers;
+using IntegorAuthorizationShared.Types;
+using IntegorAuthorizationShared.Services;
+using IntegorAuthorizationShared.Services.Unsafe;
+using IntegorAuthorizationShared.Helpers;
 
-namespace PrettyUserAuthorization
+namespace IntegorAuthorization
 {
 	public class ApplicationInitializer
 	{

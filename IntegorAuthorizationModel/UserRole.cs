@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static PrettyUserAuthorizationModelOptions.UserRoleOptions;
+using static IntegorAuthorizationModelOptions.UserRoleOptions;
 
-namespace PrettyUserAuthorizationModel
+namespace IntegorAuthorizationModel
 {
 	public class UserRole
 	{

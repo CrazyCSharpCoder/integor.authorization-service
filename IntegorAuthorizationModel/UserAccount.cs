@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using System.ComponentModel.DataAnnotations;
 
-using PrettyUserAuthorizationModelOptions;
+using IntegorAuthorizationModelOptions;
 
-namespace PrettyUserAuthorizationModel
+namespace IntegorAuthorizationModel
 {
 	public class UserAccount
 	{

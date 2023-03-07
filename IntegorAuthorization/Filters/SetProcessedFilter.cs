@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 
-using PrettyUserAuthorizationAspShared;
+using IntegorAuthorizationAspShared;
 
-namespace PrettyUserAuthorization.Filters
+namespace IntegorAuthorization.Filters
 {
 	public class SetProcessedFilter : IActionFilter
 	{

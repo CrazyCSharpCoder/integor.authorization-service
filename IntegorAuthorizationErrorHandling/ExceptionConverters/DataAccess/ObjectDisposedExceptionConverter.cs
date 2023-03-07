@@ -10,7 +10,7 @@ using AspErrorHandling.ExceptionsHandling;
 
 using Npgsql;
 
-namespace PrettyUserAuthorizationErrorHandling.ExceptionConverters.DataAccess
+namespace IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess
 {
 	public class ObjectDisposedExceptionConverter : LazyInjectableExceptionConverter, IExceptionErrorConverter<ObjectDisposedException>
 	{

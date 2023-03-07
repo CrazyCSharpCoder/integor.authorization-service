@@ -8,16 +8,16 @@ using System.Security.Claims;
 
 using Microsoft.AspNetCore.Http;
 
-using PrettyUserAuthorizationGlobalConstants;
+using IntegorAuthorizationGlobalConstants;
 
-using PrettyUserAuthorizationAspShared.ConfigurationProviders;
+using IntegorAuthorizationAspShared.ConfigurationProviders;
 
-using PrettyUserAuthorizationShared.Dto.Users;
-using PrettyUserAuthorizationShared.Services;
+using IntegorAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Services;
 
 using AdvancedJwtAuthentication.Services;
 
-namespace PrettyUserAuthorizationAspServices
+namespace IntegorAuthorizationAspServices
 {
 	public class AuthenticationAbstractionService : IAuthenticationAbstractionService
 	{

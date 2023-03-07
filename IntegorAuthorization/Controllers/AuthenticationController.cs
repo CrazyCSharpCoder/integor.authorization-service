@@ -9,18 +9,18 @@ using AutoMapper;
 using AspErrorHandling;
 using AspErrorHandling.Converters;
 
-using PrettyUserAuthorizationResponseDecoration.Attributes;
+using IntegorAuthorizationResponseDecoration.Attributes;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-using PrettyUserAuthorizationShared.Dto.Users;
-using PrettyUserAuthorizationShared.Services;
-using PrettyUserAuthorizationShared.Services.Security;
-using PrettyUserAuthorizationShared.Services.Security.Password;
+using IntegorAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Services;
+using IntegorAuthorizationShared.Services.Security;
+using IntegorAuthorizationShared.Services.Security.Password;
 
 using AdvancedJwtAuthentication.Refresh;
 
-namespace PrettyUserAuthorization.Controllers
+namespace IntegorAuthorization.Controllers
 {
     using static Constants.RouteNames.AuthRouteNames;
 

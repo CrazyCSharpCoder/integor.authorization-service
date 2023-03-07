@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AspErrorHandling;
 using AspResponseDecoration;
 
-namespace PrettyUserAuthorizationResponseDecoration.Decorators
+namespace IntegorAuthorizationResponseDecoration.Decorators
 {
 	public class ErrorResponseBodyDecorator : IResponseBodyDecorator
 	{

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Builder;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace PrettyUserAuthorization
+namespace IntegorAuthorization
 {
 	using StartupServices;
 	using Middleware;
@@ -27,7 +27,7 @@ namespace PrettyUserAuthorization
 			services.AddControllers();
 			services.AddFilters();
 
-			services.AddDatabase(Configuration.GetConnectionString("PrettyUserAuthorizationDatabase"));
+			services.AddDatabase(Configuration.GetConnectionString("IntegorAuthorizationDatabase"));
 
 			services.AddAuthenticationSchemes();
 			services.AddAuthenticationServices();

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-namespace PrettyUserAuthorizationShared.Helpers
+namespace IntegorAuthorizationShared.Helpers
 {
 	using Types;
 

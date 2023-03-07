@@ -5,21 +5,21 @@ using AdvancedJwtAuthentication.Refresh;
 
 using AdvancedJwtAuthentication.Services;
 
-using PrettyUserAuthorizationAspShared;
-using PrettyUserAuthorizationAspShared.ConfigurationProviders;
+using IntegorAuthorizationAspShared;
+using IntegorAuthorizationAspShared.ConfigurationProviders;
 
-using PrettyUserAuthorizationAspServices;
-using PrettyUserAuthorizationAspServices.Authentication;
-using PrettyUserAuthorizationAspServices.ConfigurationProviders;
+using IntegorAuthorizationAspServices;
+using IntegorAuthorizationAspServices.Authentication;
+using IntegorAuthorizationAspServices.ConfigurationProviders;
 
-using PrettyUserAuthorizationShared.Services;
-using PrettyUserAuthorizationShared.Helpers;
+using IntegorAuthorizationShared.Services;
+using IntegorAuthorizationShared.Helpers;
 
-using PrettyUserAuthorizationServices.DatabaseContext;
+using IntegorAuthorizationServices.DatabaseContext;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace PrettyUserAuthorization.StartupServices
+namespace IntegorAuthorization.StartupServices
 {
 	using Middleware;
 
@@ -70,7 +70,7 @@ namespace PrettyUserAuthorization.StartupServices
 
 		public static void AddDatabase(this IServiceCollection services, string connectionString)
 		{
-			services.AddDbContext<PrettyUserAuthorizationDbContext>(options =>
+			services.AddDbContext<IntegorAuthorizationDbContext>(options =>
 			{
 				options.UseNpgsql(connectionString);
 			});

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationShared.Services.Security.Password;
+using IntegorAuthorizationShared.Services.Security.Password;
 
-namespace PrettyUserAuthorizationServices.Security.Password
+namespace IntegorAuthorizationServices.Security.Password
 {
 	public class HexadecimalByteStringifyingService : IByteStringifyingService
 	{

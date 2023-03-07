@@ -1,4 +1,4 @@
-﻿namespace PrettyUserAuthorization.Constants.RouteNames
+﻿namespace IntegorAuthorization.Constants.RouteNames
 {
 	public static class UserRolesRouteNames
 	{

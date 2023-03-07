@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Microsoft.IdentityModel.Tokens;
 
-namespace PrettyUserAuthorizationAspShared.ConfigurationProviders
+namespace IntegorAuthorizationAspShared.ConfigurationProviders
 {
     public interface IAuthenticationConfigurationProvider
     {

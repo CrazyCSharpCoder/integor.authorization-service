@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using PrettyUserAuthorizationResponseDecoration.Decorators;
+using IntegorAuthorizationResponseDecoration.Decorators;
 
-namespace PrettyUserAuthorization.StartupServices
+namespace IntegorAuthorization.StartupServices
 {
 	public static class ResponseBodyDecoratorsServicesExtensions
 	{

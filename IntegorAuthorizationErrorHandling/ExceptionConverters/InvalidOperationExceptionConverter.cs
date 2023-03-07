@@ -9,7 +9,7 @@ using AspErrorHandling;
 using AspErrorHandling.Converters;
 using AspErrorHandling.ExceptionsHandling;
 
-namespace PrettyUserAuthorizationErrorHandling.ExceptionConverters
+namespace IntegorAuthorizationErrorHandling.ExceptionConverters
 {
 	public class InvalidOperationExceptionConverter : LazyInjectableExceptionConverter, IExceptionErrorConverter<InvalidOperationException>
 	{

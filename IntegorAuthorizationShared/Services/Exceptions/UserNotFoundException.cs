@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationShared.Services.Exceptions
+namespace IntegorAuthorizationShared.Services.Exceptions
 {
 	public class UserNotFoundException : ApplicationException
 	{

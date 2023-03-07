@@ -12,7 +12,7 @@ using AspErrorHandling;
 using AspErrorHandling.Converters;
 using AspErrorHandling.ExceptionsHandling;
 
-namespace PrettyUserAuthorizationErrorHandling.ExceptionConverters.DataAccess
+namespace IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess
 {
 	public class DbUpdateExceptionConverter : LazyInjectableExceptionConverter, IExceptionErrorConverter<DbUpdateException>
 	{

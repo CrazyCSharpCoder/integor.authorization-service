@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 
-using PrettyUserAuthorizationModel;
-using PrettyUserAuthorizationShared.Dto.Users;
+using IntegorAuthorizationModel;
+using IntegorAuthorizationShared.Dto.Users;
 
-namespace PrettyUserAuthorization.Mapper.Profiles
+namespace IntegorAuthorization.Mapper.Profiles
 {
     public class UsersMapperProfile : Profile
     {

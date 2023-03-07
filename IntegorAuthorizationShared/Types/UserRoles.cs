@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationShared.Types
+namespace IntegorAuthorizationShared.Types
 {
 	public enum UserRoles
 	{

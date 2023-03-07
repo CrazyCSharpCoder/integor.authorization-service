@@ -1,17 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using PrettyUserAuthorizationShared.Services;
-using PrettyUserAuthorizationShared.Services.Security;
-using PrettyUserAuthorizationShared.Services.Security.Password;
+using IntegorAuthorizationShared.Services;
+using IntegorAuthorizationShared.Services.Security;
+using IntegorAuthorizationShared.Services.Security.Password;
 
-using PrettyUserAuthorizationServices;
-using PrettyUserAuthorizationServices.Security;
-using PrettyUserAuthorizationServices.Security.Password;
+using IntegorAuthorizationServices;
+using IntegorAuthorizationServices.Security;
+using IntegorAuthorizationServices.Security.Password;
 
-using PrettyUserAuthorizationShared.Services.Unsafe;
-using PrettyUserAuthorizationServices.Unsafe;
+using IntegorAuthorizationShared.Services.Unsafe;
+using IntegorAuthorizationServices.Unsafe;
 
-namespace PrettyUserAuthorization.StartupServices
+namespace IntegorAuthorization.StartupServices
 {
 	public static class LogicServicesExtensions
 	{

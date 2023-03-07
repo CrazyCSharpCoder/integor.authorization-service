@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationShared.Services;
+using IntegorAuthorizationShared.Services;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace PrettyUserAuthorizationServices
+namespace IntegorAuthorizationServices
 {
 	using DatabaseContext;
 
 	public class UserValidationService : IUserValidationService
 	{
-		private PrettyUserAuthorizationDbContext _context;
+		private IntegorAuthorizationDbContext _context;
 
-		public UserValidationService(PrettyUserAuthorizationDbContext context)
+		public UserValidationService(IntegorAuthorizationDbContext context)
 		{
 			_context = context;
 		}

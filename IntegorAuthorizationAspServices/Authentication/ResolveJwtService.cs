@@ -11,9 +11,9 @@ using Microsoft.IdentityModel.Tokens;
 
 using AdvancedJwtAuthentication.Services;
 
-using PrettyUserAuthorizationAspShared.ConfigurationProviders;
+using IntegorAuthorizationAspShared.ConfigurationProviders;
 
-namespace PrettyUserAuthorizationAspServices.Authentication
+namespace IntegorAuthorizationAspServices.Authentication
 {
 	using static AuthenticationConstants;
 

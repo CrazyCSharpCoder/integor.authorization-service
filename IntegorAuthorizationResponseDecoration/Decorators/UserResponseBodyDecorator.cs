@@ -2,9 +2,9 @@
 
 using AspResponseDecoration;
 
-using PrettyUserAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Dto.Users;
 
-namespace PrettyUserAuthorizationResponseDecoration.Decorators
+namespace IntegorAuthorizationResponseDecoration.Decorators
 {
 	public class UserResponseBodyDecorator : IResponseBodyDecorator
 	{

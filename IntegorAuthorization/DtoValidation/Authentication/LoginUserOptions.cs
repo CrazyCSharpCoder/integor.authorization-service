@@ -1,4 +1,4 @@
-﻿namespace PrettyUserAuthorization.DtoValidation.Authentication
+﻿namespace IntegorAuthorization.DtoValidation.Authentication
 {
 	public static class LoginUserOptions
 	{

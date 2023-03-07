@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using AspErrorHandling;
 using AspErrorHandling.Converters;
 
-namespace PrettyUserAuthorizationErrorHandling.ExceptionConverters.DataAccess
+namespace IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess
 {
 	using Internal;
 

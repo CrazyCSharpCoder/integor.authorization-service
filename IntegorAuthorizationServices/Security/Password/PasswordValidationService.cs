@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
 
-using PrettyUserAuthorizationModel;
-using PrettyUserAuthorizationShared.Services.Security.Password;
+using IntegorAuthorizationModel;
+using IntegorAuthorizationShared.Services.Security.Password;
 
-namespace PrettyUserAuthorizationServices.Security.Password
+namespace IntegorAuthorizationServices.Security.Password
 {
 	using DatabaseContext;
 
 	public class PasswordValidationService : IPasswordValidationService
 	{
-		private PrettyUserAuthorizationDbContext _context;
+		private IntegorAuthorizationDbContext _context;
 
-		public PasswordValidationService(PrettyUserAuthorizationDbContext context)
+		public PasswordValidationService(IntegorAuthorizationDbContext context)
 		{
 			_context = context;
 		}

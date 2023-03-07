@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-namespace PrettyUserAuthorizationServices.DatabaseContext
+namespace IntegorAuthorizationServices.DatabaseContext
 {
-	public class PrettyUserAuthorizationDbContext : DbContext
+	public class IntegorAuthorizationDbContext : DbContext
 	{
 		public DbSet<UserAccount> Users { get; set; } = null!;
 		public DbSet<UserRole> UserRoles { get; set; } = null!;
 		public DbSet<SecurityData> SecurityData { get; set; } = null!;
 
-		public PrettyUserAuthorizationDbContext(DbContextOptions options) : base(options)
+		public IntegorAuthorizationDbContext(DbContextOptions options) : base(options)
 		{
 		}
 

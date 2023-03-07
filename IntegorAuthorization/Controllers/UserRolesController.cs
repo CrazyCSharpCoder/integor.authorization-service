@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
-using PrettyUserAuthorizationResponseDecoration.Attributes;
+using IntegorAuthorizationResponseDecoration.Attributes;
 
-using PrettyUserAuthorizationModel;
-using PrettyUserAuthorizationShared.Services;
+using IntegorAuthorizationModel;
+using IntegorAuthorizationShared.Services;
 
-namespace PrettyUserAuthorization.Controllers
+namespace IntegorAuthorization.Controllers
 {
 	using static Constants.RouteNames.UserRolesRouteNames;
 

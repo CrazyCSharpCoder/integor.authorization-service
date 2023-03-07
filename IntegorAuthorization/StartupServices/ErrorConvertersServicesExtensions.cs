@@ -11,13 +11,13 @@ using AspErrorHandling;
 using AspErrorHandling.Converters;
 using AspErrorHandling.DefaultImplementations;
 
-using PrettyUserAuthorizationErrorHandling;
-using PrettyUserAuthorizationErrorHandling.Converters;
+using IntegorAuthorizationErrorHandling;
+using IntegorAuthorizationErrorHandling.Converters;
 
-using PrettyUserAuthorizationErrorHandling.ExceptionConverters;
-using PrettyUserAuthorizationErrorHandling.ExceptionConverters.DataAccess;
+using IntegorAuthorizationErrorHandling.ExceptionConverters;
+using IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess;
 
-namespace PrettyUserAuthorization.StartupServices
+namespace IntegorAuthorization.StartupServices
 {
 	public static class ErrorConvertersServicesExtensions
 	{

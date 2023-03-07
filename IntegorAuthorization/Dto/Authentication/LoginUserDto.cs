@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using static PrettyUserAuthorizationModelOptions.UserAccountOptions;
-using static PrettyUserDataAnnotationsSettings.ErrorMessages;
+using static IntegorAuthorizationModelOptions.UserAccountOptions;
+using static IntegorDataAnnotationsSettings.ErrorMessages;
 
-namespace PrettyUserAuthorization.Dto.Authentication
+namespace IntegorAuthorization.Dto.Authentication
 {
 	using static Constants.DtoValidation.UserValidationConstants;
 

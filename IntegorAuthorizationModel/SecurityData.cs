@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static PrettyUserAuthorizationModelOptions.Security.SecurityDatabaseOptions;
+using static IntegorAuthorizationModelOptions.Security.SecurityDatabaseOptions;
 
-namespace PrettyUserAuthorizationModel
+namespace IntegorAuthorizationModel
 {
     public class SecurityData
 	{

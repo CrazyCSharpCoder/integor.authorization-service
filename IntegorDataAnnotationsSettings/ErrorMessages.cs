@@ -1,4 +1,4 @@
-﻿namespace PrettyUserDataAnnotationsSettings
+﻿namespace IntegorDataAnnotationsSettings
 {
 	public static class ErrorMessages
 	{

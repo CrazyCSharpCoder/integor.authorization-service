@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationShared.Dto.Users
+namespace IntegorAuthorizationShared.Dto.Users
 {
 	using Roles;
 

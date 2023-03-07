@@ -3,13 +3,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
 
-using PrettyUserAuthorizationAspShared;
+using IntegorAuthorizationAspShared;
 
 using AspErrorHandling;
 
 using static AspErrorHandling.Helpers.ConvertResultShortcuts;
 
-namespace PrettyUserAuthorization.Middleware
+namespace IntegorAuthorization.Middleware
 {
 	public class StatusCodesHandlingMiddleware : IMiddleware
 	{

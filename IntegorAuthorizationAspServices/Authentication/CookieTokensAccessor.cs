@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Http;
 
-using PrettyUserAuthorizationAspShared.ConfigurationProviders;
+using IntegorAuthorizationAspShared.ConfigurationProviders;
 
 using AdvancedJwtAuthentication.Services;
 
-namespace PrettyUserAuthorizationAspServices.Authentication
+namespace IntegorAuthorizationAspServices.Authentication
 {
 	using static AuthenticationConstants;
 

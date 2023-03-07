@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-using PrettyUserAuthorizationShared.Types;
-using PrettyUserAuthorizationShared.Dto.Users;
-using PrettyUserAuthorizationShared.Services;
-using PrettyUserAuthorizationShared.Helpers;
+using IntegorAuthorizationShared.Types;
+using IntegorAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Services;
+using IntegorAuthorizationShared.Helpers;
 
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace PrettyUserAuthorizationServices
+namespace IntegorAuthorizationServices
 {
 	using DatabaseContext;
 	using Internal.DatabaseContextExtensions;
 
 	public class UsersService : IUsersService
 	{
-		private PrettyUserAuthorizationDbContext _context;
+		private IntegorAuthorizationDbContext _context;
 		private IMapper _mapper;
 
 		private UserRolesConverter _rolesHelper;
 
 		public UsersService(
-			PrettyUserAuthorizationDbContext context,
+			IntegorAuthorizationDbContext context,
 			IMapper mapper,
 			UserRolesConverter rolesHelper)
 		{

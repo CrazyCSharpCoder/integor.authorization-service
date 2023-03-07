@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
 
-namespace PrettyUserAuthorization
+namespace IntegorAuthorization
 {
 	public class Program
 	{

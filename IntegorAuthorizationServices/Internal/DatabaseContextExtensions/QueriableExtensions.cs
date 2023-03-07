@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace PrettyUserAuthorizationServices.Internal.DatabaseContextExtensions
+namespace IntegorAuthorizationServices.Internal.DatabaseContextExtensions
 {
 	internal static class QueriableExtensions
 	{

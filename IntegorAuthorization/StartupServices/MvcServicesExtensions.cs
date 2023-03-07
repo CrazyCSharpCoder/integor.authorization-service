@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-using PrettyUserAuthorizationAspShared;
+using IntegorAuthorizationAspShared;
 
 using AspErrorHandling;
 using AspErrorHandling.Converters;
 using AspErrorHandling.Filters;
 
-namespace PrettyUserAuthorization.StartupServices
+namespace IntegorAuthorization.StartupServices
 {
 	using Filters;
 

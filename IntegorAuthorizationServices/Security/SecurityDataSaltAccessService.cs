@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationModel;
-using PrettyUserAuthorizationShared.Services.Security;
+using IntegorAuthorizationModel;
+using IntegorAuthorizationShared.Services.Security;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace PrettyUserAuthorizationServices.Security
+namespace IntegorAuthorizationServices.Security
 {
 	using DatabaseContext;
 
 	public class SecurityDataSaltAccessService : ISecurityDataAccessService
 	{
-		private PrettyUserAuthorizationDbContext _context;
+		private IntegorAuthorizationDbContext _context;
 
-		public SecurityDataSaltAccessService(PrettyUserAuthorizationDbContext context)
+		public SecurityDataSaltAccessService(IntegorAuthorizationDbContext context)
 		{
 			_context = context;
 		}

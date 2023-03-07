@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 
 using AspResponseDecoration;
 
-using PrettyUserAuthorizationModel;
-using PrettyUserAuthorizationShared.Dto.Roles;
+using IntegorAuthorizationModel;
+using IntegorAuthorizationShared.Dto.Roles;
 
-namespace PrettyUserAuthorizationResponseDecoration.Decorators
+namespace IntegorAuthorizationResponseDecoration.Decorators
 {
 	public class UserRolesCollectionResponseBodyDecorator : IResponseBodyDecorator
 	{

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-namespace PrettyUserAuthorizationShared.Services
+namespace IntegorAuthorizationShared.Services
 {
 	public interface IUserRolesService
 	{

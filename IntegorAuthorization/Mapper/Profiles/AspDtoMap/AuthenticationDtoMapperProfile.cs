@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 
-using PrettyUserAuthorizationShared.Dto.Users;
+using IntegorAuthorizationShared.Dto.Users;
 
-namespace PrettyUserAuthorization.Mapper.Profiles.AspDtoMap
+namespace IntegorAuthorization.Mapper.Profiles.AspDtoMap
 {
 	using Dto.Authentication;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using AspErrorHandling;
 
-namespace PrettyUserAuthorizationErrorHandling
+namespace IntegorAuthorizationErrorHandling
 {
 	public class StandardResponseErrorObjectCompiler : IResponseErrorObjectCompiler
 	{

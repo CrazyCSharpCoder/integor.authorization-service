@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using PrettyUserAuthorizationModel;
+using IntegorAuthorizationModel;
 
-namespace PrettyUserAuthorizationShared.Services.Unsafe
+namespace IntegorAuthorizationShared.Services.Unsafe
 {
 	public interface IEditUserRolesService
 	{

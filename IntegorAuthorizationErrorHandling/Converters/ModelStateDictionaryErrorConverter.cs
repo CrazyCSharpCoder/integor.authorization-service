@@ -9,7 +9,7 @@ using AspErrorHandling.Converters;
 
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace PrettyUserAuthorizationErrorHandling.Converters
+namespace IntegorAuthorizationErrorHandling.Converters
 {
 	public class ModelStateDictionaryErrorConverter : ConverterBase, IErrorConverter<ModelStateDictionary>
 	{

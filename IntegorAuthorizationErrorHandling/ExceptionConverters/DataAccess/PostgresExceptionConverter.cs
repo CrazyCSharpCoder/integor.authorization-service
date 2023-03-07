@@ -9,7 +9,7 @@ using AspErrorHandling.Converters;
 
 using Npgsql;
 
-namespace PrettyUserAuthorizationErrorHandling.ExceptionConverters.DataAccess
+namespace IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess
 {
 	using static Internal.DatabaseErrorsConstants;
 

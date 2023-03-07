@@ -1,4 +1,4 @@
-﻿namespace PrettyUserAuthorization.Controllers
+﻿namespace IntegorAuthorization.Controllers
 {
 	public class PasswordController
 	{

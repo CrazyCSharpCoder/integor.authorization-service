@@ -1,4 +1,4 @@
-﻿namespace PrettyUserAuthorization.Constants.DtoValidation
+﻿namespace IntegorAuthorization.Constants.DtoValidation
 {
 	public static class UserValidationConstants
 	{

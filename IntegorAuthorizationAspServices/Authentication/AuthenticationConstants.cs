@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyUserAuthorizationAspServices.Authentication
+namespace IntegorAuthorizationAspServices.Authentication
 {
 	internal static class AuthenticationConstants
 	{
