@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspErrorHandling\AspErrorHandling.csproj" />
+    <ProjectReference Include="..\AspResponseDecoration\AspResponseDecoration.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationModel\IntegorAuthorizationModel.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationShared\IntegorAuthorizationShared.csproj" />
+  </ItemGroup>
+
+</Project>
