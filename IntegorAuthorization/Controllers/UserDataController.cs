@@ -3,8 +3,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
 
 using IntegorAuthorizationResponseDecoration.Attributes;
 

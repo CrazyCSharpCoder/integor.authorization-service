@@ -7,15 +7,15 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
-using AspErrorHandling.DefaultImplementations;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
+using IntegorErrorsHandling.DefaultImplementations;
 
-using IntegorAuthorizationErrorHandling;
-using IntegorAuthorizationErrorHandling.Converters;
+using IntegorSharedErrorHandlers;
+using IntegorSharedErrorHandlers.Converters;
 
-using IntegorAuthorizationErrorHandling.ExceptionConverters;
-using IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess;
+using IntegorSharedErrorHandlers.ExceptionConverters;
+using IntegorSharedErrorHandlers.ExceptionConverters.DataAccess;
 
 namespace IntegorAuthorization.StartupServices
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using AspResponseDecoration;
+using IntegorResponseDecoration;
 
 using IntegorAuthorizationModel;
 using IntegorAuthorizationShared.Dto.Roles;

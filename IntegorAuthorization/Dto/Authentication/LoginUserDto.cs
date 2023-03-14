@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using static IntegorAuthorizationModelOptions.UserAccountOptions;
-using static IntegorDataAnnotationsSettings.ErrorMessages;
+using static IntegorGlobalConstants.DataAnnotationsErrors;
 
 namespace IntegorAuthorization.Dto.Authentication
 {

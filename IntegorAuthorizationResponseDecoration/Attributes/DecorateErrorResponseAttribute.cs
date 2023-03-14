@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-using AspResponseDecoration;
+using IntegorResponseDecoration;
 
 namespace IntegorAuthorizationResponseDecoration.Attributes
 {

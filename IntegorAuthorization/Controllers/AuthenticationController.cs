@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 
 using AutoMapper;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
 
 using IntegorAuthorizationResponseDecoration.Attributes;
 

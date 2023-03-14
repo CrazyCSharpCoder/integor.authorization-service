@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using IntegorAspHelpers.Middleware.WebApiResponse;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace IntegorAuthorization
 {
 	using StartupServices;
-	using Middleware;
 
 	public class Startup
 	{
@@ -53,8 +55,8 @@ namespace IntegorAuthorization
 
 		public void Configure(IApplicationBuilder app, IServiceProvider provider)
 		{
-			app.UseMiddleware<ExceptionsHandlingMiddleware>();
-			app.UseMiddleware<StatusCodesHandlingMiddleware>();
+			app.UseWebApiExceptionsHandling(WriteJsonBody);
+			app.UseWebApiStatusCodesHandling(WriteJsonBody);
 
 			app.UseStaticFiles();
 
@@ -77,5 +79,8 @@ namespace IntegorAuthorization
 
 			await initializer.EnsureRolesCreatedAsync();
 		}
+
+		private async Task WriteJsonBody(HttpResponse response, object body)
+			 => await response.WriteAsJsonAsync(body);
 	}
 }

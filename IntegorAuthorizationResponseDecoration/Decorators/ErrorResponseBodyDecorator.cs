@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using AspErrorHandling;
-using AspResponseDecoration;
+using IntegorErrorsHandling;
+using IntegorResponseDecoration;
 
 namespace IntegorAuthorizationResponseDecoration.Decorators
 {

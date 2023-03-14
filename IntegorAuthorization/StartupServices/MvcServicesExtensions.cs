@@ -9,16 +9,15 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-using IntegorAuthorizationAspShared;
+using IntegorAspHelpers.Http;
+using IntegorAspHelpers.Http.Filters;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
-using AspErrorHandling.Filters;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
+using IntegorErrorsHandling.Filters;
 
 namespace IntegorAuthorization.StartupServices
 {
-	using Filters;
-
 	public static class MvcServicesExtensions
 	{
 		public static void AddControllers(this IServiceCollection services)

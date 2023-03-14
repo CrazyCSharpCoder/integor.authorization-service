@@ -9,6 +9,13 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="IntegorAspHelpers" Version="1.1.0" />
+    <PackageReference Include="IntegorErrorsHandling" Version="1.0.0" />
+    <PackageReference Include="IntegorGlobalConstants" Version="1.0.0" />
+    <PackageReference Include="IntegorResponseDecoration" Version="1.0.0" />
+    <PackageReference Include="IntegorSharedAspHelpers" Version="1.0.0" />
+    <PackageReference Include="IntegorSharedErrorHandlers" Version="1.0.0" />
+    <PackageReference Include="IntegorSharedResponseDecorators" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.14">
       <PrivateAssets>all</PrivateAssets>
@@ -17,15 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspErrorHandling\AspErrorHandling.csproj" />
-    <ProjectReference Include="..\AspResponseDecoration\AspResponseDecoration.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationAspServices\IntegorAuthorizationAspServices.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationAspShared\IntegorAuthorizationAspShared.csproj" />
-    <ProjectReference Include="..\IntegorAuthorizationErrorHandling\IntegorAuthorizationErrorHandling.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationResponseDecoration\IntegorAuthorizationResponseDecoration.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationServices\IntegorAuthorizationServices.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationShared\IntegorAuthorizationShared.csproj" />
-    <ProjectReference Include="..\IntegorDataAnnotationsSettings\IntegorDataAnnotationsSettings.csproj" />
   </ItemGroup>
 
 </Project>

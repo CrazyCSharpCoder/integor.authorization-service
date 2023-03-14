@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspErrorHandling\AspErrorHandling.csproj" />
-    <ProjectReference Include="..\AspResponseDecoration\AspResponseDecoration.csproj" />
+    <PackageReference Include="IntegorErrorsHandling" Version="1.0.0" />
+    <PackageReference Include="IntegorResponseDecoration" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IntegorAuthorizationModel\IntegorAuthorizationModel.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationShared\IntegorAuthorizationShared.csproj" />
   </ItemGroup>
