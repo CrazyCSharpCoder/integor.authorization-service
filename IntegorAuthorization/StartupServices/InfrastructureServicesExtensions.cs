@@ -36,12 +36,6 @@ namespace IntegorAuthorization.StartupServices
 			services.AddScoped<IHttpContextProcessedMarker, HttpContextProcessedMarker>();
 		}
 
-		public static void AddMiddleware(this IServiceCollection services)
-		{
-			services.AddScoped<WebApiExceptionsHandlingMiddleware>();
-			services.AddScoped<WebApiStatusCodesHandlingMiddleware>();
-		}
-
 		public static void AddConfigurationProviders(this IServiceCollection services)
 		{
 			services.AddSingleton<IAuthenticationConfigurationProvider, AuthenticationConfigurationProvider>();

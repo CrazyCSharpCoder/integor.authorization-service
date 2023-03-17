@@ -36,14 +36,13 @@ namespace IntegorAuthorization
 
 			services.AddAutoMapper();
 
-			services.AddMiddleware();
 			services.AddHttpContextServices();
 			services.AddConfigurationProviders();
 
 			services.AddResponseDecorators();
 
 			services.AddTypesErrorConverters();
-			services.AddStandartExceptionConverters();
+			services.AddStandardExceptionConverters();
 			services.AddDatabaseExceptionConverters();
 
 			services.AddSecurity();
