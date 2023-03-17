@@ -10,7 +10,7 @@ namespace IntegorAuthorizationResponseDecoration.Decorators
 	{
 		public ResponseBodyDecorationResult Decorate(object? body)
 		{
-			if (body is not UserAccountPublicDto)
+			if (body is not UserAccountDto)
 				return new ResponseBodyDecorationResult(false);
 
 			object newBody = new

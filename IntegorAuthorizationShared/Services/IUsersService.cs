@@ -10,9 +10,9 @@ namespace IntegorAuthorizationShared.Services
 
     public interface IUsersService
 	{
-		Task<UserAccountPublicDto> AddAsync(AddUserAccountDto account);
+		Task<UserAccountDto> AddAsync(AddUserAccountDto account);
 
-		Task<UserAccountPublicDto?> GetByIdAsync(int id);
-		Task<UserAccountPublicDto?> GetByEmailAsync(string email);
+		Task<UserAccountDto?> GetByIdAsync(int id);
+		Task<UserAccountDto?> GetByEmailAsync(string email);
 	}
 }

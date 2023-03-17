@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationGlobalC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationModel", "IntegorAuthorizationModel\IntegorAuthorizationModel.csproj", "{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationModelOptions", "IntegorAuthorizationModelOptions\IntegorAuthorizationModelOptions.csproj", "{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationResponseDecoration", "IntegorAuthorizationResponseDecoration\IntegorAuthorizationResponseDecoration.csproj", "{D648938E-4056-4770-84B7-19B47633C5DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationServices", "IntegorAuthorizationServices\IntegorAuthorizationServices.csproj", "{D4716542-ADC4-4201-A789-A1D3192D8BED}"
@@ -55,10 +53,6 @@ Global
 		{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D648938E-4056-4770-84B7-19B47633C5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D648938E-4056-4770-84B7-19B47633C5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D648938E-4056-4770-84B7-19B47633C5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU

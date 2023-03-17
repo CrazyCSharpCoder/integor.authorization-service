@@ -43,7 +43,7 @@ namespace IntegorAuthorizationAspServices
 			_users = users;
 		}
 
-		public async Task LoginAsync(UserAccountPublicDto user)
+		public async Task LoginAsync(UserAccountDto user)
 		{
 			Claim[] claims = new Claim[]
 			{
@@ -72,7 +72,7 @@ namespace IntegorAuthorizationAspServices
 			return refreshClaim != null && refreshClaim.Value == true.ToString();
 		}
 
-		public async Task<UserAccountPublicDto> GetAuthenticatedUserAsync()
+		public async Task<UserAccountDto> GetAuthenticatedUserAsync()
 		{
 			ClaimsPrincipal principal = _http.User;
 
@@ -85,7 +85,7 @@ namespace IntegorAuthorizationAspServices
 				// TODO to think about a better exception message
 				throw new InvalidOperationException("User is not authenticated");
 
-			UserAccountPublicDto? user = await _users.GetByEmailAsync(usernameClaim.Value);
+			UserAccountDto? user = await _users.GetByEmailAsync(usernameClaim.Value);
 
 			if (user == null)
 				// TODO to think about a better exception message

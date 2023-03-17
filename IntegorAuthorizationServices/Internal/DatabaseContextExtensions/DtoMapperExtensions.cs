@@ -15,10 +15,10 @@ namespace IntegorAuthorizationServices.Internal.DatabaseContextExtensions
 {
 	internal static class DtoMapperExtensions
 	{
-		public static UserAccountPublicDto MapUserToPublicDto(
+		public static UserAccountDto MapUserToPublicDto(
 			this IMapper mapper, UserAccount user, UserRole role)
 		{
-			UserAccountPublicDto publicUser = mapper.Map<UserAccountPublicDto>(user);
+			UserAccountDto publicUser = mapper.Map<UserAccountDto>(user);
 			publicUser.Role = mapper.Map<UserRoleShortDto>(role);
 
 			return publicUser;

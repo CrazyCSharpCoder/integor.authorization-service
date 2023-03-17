@@ -38,7 +38,7 @@ namespace IntegorAuthorization.Controllers
 		[HttpGet("me", Name = GetAccountRoute)]
 		public async Task<IActionResult> GetMeAsync()
 		{
-			UserAccountPublicDto user = await _authentication.GetAuthenticatedUserAsync();
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
 			return Ok(user);
 		}
 
@@ -46,7 +46,7 @@ namespace IntegorAuthorization.Controllers
 		[HttpGet("by-id/{id}", Name = GetByIdRoute)]
 		public async Task<IActionResult> GetUserByIdAsync(int id)
 		{
-			UserAccountPublicDto? user =  await _users.GetByIdAsync(id);
+			UserAccountDto? user =  await _users.GetByIdAsync(id);
 
 			if (user != null)
 				return Ok(user);
@@ -61,7 +61,7 @@ namespace IntegorAuthorization.Controllers
 		[HttpGet("by-email/{email}", Name = GetByEmailRoute)]
 		public async Task<IActionResult> GetUserByEmailAsync([System.ComponentModel.DataAnnotations.EmailAddress] string email)
 		{
-			UserAccountPublicDto? user = await _users.GetByEmailAsync(email);
+			UserAccountDto? user = await _users.GetByEmailAsync(email);
 
 			if (user != null)
 				return Ok(user);

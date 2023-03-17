@@ -8,7 +8,7 @@ namespace IntegorAuthorizationShared.Dto.Users
 {
 	using Roles;
 
-    public class UserAccountPublicDto
+    public class UserAccountDto
     {
         public int Id { get; set; }
 

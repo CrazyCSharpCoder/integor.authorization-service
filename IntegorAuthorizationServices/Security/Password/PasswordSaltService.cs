@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-using IntegorAuthorizationModelOptions.Security;
+using IntegorGlobalConstants.ModelOptions.Authorization.Security;
 using IntegorAuthorizationShared.Services.Security.Password;
 
 namespace IntegorAuthorizationServices.Security.Password

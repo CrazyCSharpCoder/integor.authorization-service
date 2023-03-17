@@ -26,7 +26,7 @@ using Microsoft.EntityFrameworkCore;
 namespace IntegorAuthorization.StartupServices
 {
 	using Mapper.Profiles;
-	using Mapper.Profiles.AspDtoMap;
+	using Mapper.Profiles.Dto;
 
 	public static class InfrastructureServicesExtensions
 	{
