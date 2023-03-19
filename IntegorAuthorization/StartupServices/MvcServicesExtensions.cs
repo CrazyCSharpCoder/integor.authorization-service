@@ -9,19 +9,19 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-using IntegorAuthorizationAspShared;
+using IntegorAspHelpers.Http;
+using IntegorAspHelpers.Http.Filters;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
-using AspErrorHandling.Filters;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
+using IntegorErrorsHandling.Filters;
+using IntegorSharedResponseDecorators.Attributes;
 
 namespace IntegorAuthorization.StartupServices
 {
-	using Filters;
-
 	public static class MvcServicesExtensions
 	{
-		public static void AddControllers(this IServiceCollection services)
+		public static void AddConfiguredControllers(this IServiceCollection services)
 		{
 			services.AddControllers(options =>
 			{
@@ -37,6 +37,7 @@ namespace IntegorAuthorization.StartupServices
 					typeof(IExceptionErrorConverter<InvalidOperationException>)
 				};
 
+				options.Filters.Add(new DecorateErrorResponseAttribute());
 				options.Filters.Add(new ExtensibleExeptionHandlingLazyFilterFactory(excConverters));
 				options.Filters.Add(new ServiceFilterAttribute(typeof(SetProcessedFilter)));
 			})

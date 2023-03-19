@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
+using IntegorSharedResponseDecorators.Attributes.Authorization;
+
 using IntegorAuthorizationResponseDecoration.Attributes;
 
 using IntegorAuthorizationModel;
@@ -23,7 +25,8 @@ namespace IntegorAuthorization.Controllers
 			_roles = roles;
 		}
 
-		[DecorateUserRolesCollectionResponse]
+		[DecorateUserRolesEnumerableResponse]
+		[DecorateRolesEnumerableToPublicDto]
 		[HttpGet("get-all", Name = GetAllRolesRoute)]
 		public async Task<IActionResult> GetAllRolesAsync()
 		{

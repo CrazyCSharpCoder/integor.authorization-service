@@ -5,33 +5,23 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19615934-6981-4030-A277-3DEBFE7ACBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedJwtAuthentication", "AdvancedJwtAuthentication\AdvancedJwtAuthentication.csproj", "{06B6348D-72E7-45BE-BF74-6D85DC992B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedJwtAuthentication", "AdvancedJwtAuthentication\AdvancedJwtAuthentication.csproj", "{06B6348D-72E7-45BE-BF74-6D85DC992B3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspErrorHandling", "AspErrorHandling\AspErrorHandling.csproj", "{A21F59C7-C736-4006-A883-92F481685394}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorization", "IntegorAuthorization\IntegorAuthorization.csproj", "{FF61DED5-065D-4964-B802-82AC2756F2EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspResponseDecoration", "AspResponseDecoration\AspResponseDecoration.csproj", "{AF422B83-CBE5-4C0D-8DA1-22F5490F9F6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationAspServices", "IntegorAuthorizationAspServices\IntegorAuthorizationAspServices.csproj", "{C6A701F0-97FE-4D33-85AB-3B0458A9D5B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorization", "IntegorAuthorization\IntegorAuthorization.csproj", "{FF61DED5-065D-4964-B802-82AC2756F2EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationAspShared", "IntegorAuthorizationAspShared\IntegorAuthorizationAspShared.csproj", "{D4E774EA-F674-4573-9403-5019DA001850}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationAspServices", "IntegorAuthorizationAspServices\IntegorAuthorizationAspServices.csproj", "{C6A701F0-97FE-4D33-85AB-3B0458A9D5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationGlobalConstants", "IntegorAuthorizationGlobalConstants\IntegorAuthorizationGlobalConstants.csproj", "{FBA0830B-A9E3-4E84-9E90-50F253B53EDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationAspShared", "IntegorAuthorizationAspShared\IntegorAuthorizationAspShared.csproj", "{D4E774EA-F674-4573-9403-5019DA001850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationModel", "IntegorAuthorizationModel\IntegorAuthorizationModel.csproj", "{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationErrorHandling", "IntegorAuthorizationErrorHandling\IntegorAuthorizationErrorHandling.csproj", "{26E48C5A-96D5-4774-BE2B-1EE74BA5FFF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationResponseDecoration", "IntegorAuthorizationResponseDecoration\IntegorAuthorizationResponseDecoration.csproj", "{D648938E-4056-4770-84B7-19B47633C5DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationGlobalConstants", "IntegorAuthorizationGlobalConstants\IntegorAuthorizationGlobalConstants.csproj", "{FBA0830B-A9E3-4E84-9E90-50F253B53EDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationServices", "IntegorAuthorizationServices\IntegorAuthorizationServices.csproj", "{D4716542-ADC4-4201-A789-A1D3192D8BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationModel", "IntegorAuthorizationModel\IntegorAuthorizationModel.csproj", "{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationModelOptions", "IntegorAuthorizationModelOptions\IntegorAuthorizationModelOptions.csproj", "{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationResponseDecoration", "IntegorAuthorizationResponseDecoration\IntegorAuthorizationResponseDecoration.csproj", "{D648938E-4056-4770-84B7-19B47633C5DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationServices", "IntegorAuthorizationServices\IntegorAuthorizationServices.csproj", "{D4716542-ADC4-4201-A789-A1D3192D8BED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorAuthorizationShared", "IntegorAuthorizationShared\IntegorAuthorizationShared.csproj", "{C88C173F-5777-473F-B370-51DEFEFAC527}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegorDataAnnotationsSettings", "IntegorDataAnnotationsSettings\IntegorDataAnnotationsSettings.csproj", "{DAA477E9-2738-4181-B130-7B11C96119FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegorAuthorizationShared", "IntegorAuthorizationShared\IntegorAuthorizationShared.csproj", "{C88C173F-5777-473F-B370-51DEFEFAC527}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +33,6 @@ Global
 		{06B6348D-72E7-45BE-BF74-6D85DC992B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B6348D-72E7-45BE-BF74-6D85DC992B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B6348D-72E7-45BE-BF74-6D85DC992B3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A21F59C7-C736-4006-A883-92F481685394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A21F59C7-C736-4006-A883-92F481685394}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A21F59C7-C736-4006-A883-92F481685394}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A21F59C7-C736-4006-A883-92F481685394}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF422B83-CBE5-4C0D-8DA1-22F5490F9F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF422B83-CBE5-4C0D-8DA1-22F5490F9F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF422B83-CBE5-4C0D-8DA1-22F5490F9F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF422B83-CBE5-4C0D-8DA1-22F5490F9F6C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF61DED5-065D-4964-B802-82AC2756F2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF61DED5-065D-4964-B802-82AC2756F2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF61DED5-065D-4964-B802-82AC2756F2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,10 +45,6 @@ Global
 		{D4E774EA-F674-4573-9403-5019DA001850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4E774EA-F674-4573-9403-5019DA001850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4E774EA-F674-4573-9403-5019DA001850}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26E48C5A-96D5-4774-BE2B-1EE74BA5FFF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26E48C5A-96D5-4774-BE2B-1EE74BA5FFF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26E48C5A-96D5-4774-BE2B-1EE74BA5FFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26E48C5A-96D5-4774-BE2B-1EE74BA5FFF6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FBA0830B-A9E3-4E84-9E90-50F253B53EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FBA0830B-A9E3-4E84-9E90-50F253B53EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBA0830B-A9E3-4E84-9E90-50F253B53EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,10 +53,6 @@ Global
 		{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4A5D84D-8CB8-4664-8A60-136A9E7E113E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFB5F5D7-2DAC-4EFA-9BCE-153BE9332ACA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D648938E-4056-4770-84B7-19B47633C5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D648938E-4056-4770-84B7-19B47633C5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D648938E-4056-4770-84B7-19B47633C5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -91,10 +65,6 @@ Global
 		{C88C173F-5777-473F-B370-51DEFEFAC527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C88C173F-5777-473F-B370-51DEFEFAC527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C88C173F-5777-473F-B370-51DEFEFAC527}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAA477E9-2738-4181-B130-7B11C96119FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAA477E9-2738-4181-B130-7B11C96119FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAA477E9-2738-4181-B130-7B11C96119FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAA477E9-2738-4181-B130-7B11C96119FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
+using IntegorAspHelpers.Http;
+using IntegorAspHelpers.Middleware.WebApiResponse.Internal;
+
+using IntegorSharedAspHelpers.Http;
+
 using AdvancedJwtAuthentication.Access;
 using AdvancedJwtAuthentication.Refresh;
 
 using AdvancedJwtAuthentication.Services;
 
-using IntegorAuthorizationAspShared;
 using IntegorAuthorizationAspShared.ConfigurationProviders;
 
 using IntegorAuthorizationAspServices;
@@ -21,10 +25,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IntegorAuthorization.StartupServices
 {
-	using Middleware;
-
 	using Mapper.Profiles;
-	using Mapper.Profiles.AspDtoMap;
+	using Mapper.Profiles.Dto;
 
 	public static class InfrastructureServicesExtensions
 	{
@@ -32,12 +34,6 @@ namespace IntegorAuthorization.StartupServices
 		{
 			services.AddHttpContextAccessor();
 			services.AddScoped<IHttpContextProcessedMarker, HttpContextProcessedMarker>();
-		}
-
-		public static void AddMiddleware(this IServiceCollection services)
-		{
-			services.AddScoped<ExceptionsHandlingMiddleware>();
-			services.AddScoped<StatusCodesHandlingMiddleware>();
 		}
 
 		public static void AddConfigurationProviders(this IServiceCollection services)

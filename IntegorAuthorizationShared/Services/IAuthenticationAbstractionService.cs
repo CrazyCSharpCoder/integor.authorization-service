@@ -10,10 +10,10 @@ namespace IntegorAuthorizationShared.Services
 
     public interface IAuthenticationAbstractionService
 	{
-		Task LoginAsync(UserAccountPublicDto user);
+		Task LoginAsync(UserAccountDto user);
 		Task LogoutAsync();
 
 		Task<bool> RefreshRequiredAsync();
-		Task<UserAccountPublicDto> GetAuthenticatedUserAsync();
+		Task<UserAccountDto> GetAuthenticatedUserAsync();
 	}
 }

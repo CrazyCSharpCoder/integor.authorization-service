@@ -7,15 +7,15 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
-using AspErrorHandling.DefaultImplementations;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
+using IntegorErrorsHandling.DefaultImplementations;
 
-using IntegorAuthorizationErrorHandling;
-using IntegorAuthorizationErrorHandling.Converters;
+using IntegorSharedErrorHandlers;
+using IntegorSharedErrorHandlers.Converters;
 
-using IntegorAuthorizationErrorHandling.ExceptionConverters;
-using IntegorAuthorizationErrorHandling.ExceptionConverters.DataAccess;
+using IntegorSharedErrorHandlers.ExceptionConverters;
+using IntegorSharedErrorHandlers.ExceptionConverters.DataAccess;
 
 namespace IntegorAuthorization.StartupServices
 {
@@ -25,22 +25,24 @@ namespace IntegorAuthorization.StartupServices
 		{
 			services.AddSingleton<IStringErrorConverter, StandardStringErrorConverter>();
 			services.AddSingleton<IResponseErrorObjectCompiler, StandardResponseErrorObjectCompiler>();
-			services.AddScoped<IErrorConverter<ModelStateDictionary>, ModelStateDictionaryErrorConverter>();
+			services.AddSingleton<IErrorConverter<ModelStateDictionary>, ModelStateDictionaryErrorConverter>();
+
+			services.AddSingleton<StatusCodeErrorConverter>();
 		}
 
-		public static void AddStandartExceptionConverters(this IServiceCollection services)
+		public static void AddStandardExceptionConverters(this IServiceCollection services)
 		{
-			services.AddScoped<IExceptionErrorConverter<Exception>, StandardExceptionErrorConverter>();
+			services.AddSingleton<IExceptionErrorConverter<Exception>, StandardExceptionErrorConverter>();
 
-			services.AddScoped<IExceptionErrorConverter<InvalidOperationException>, InvalidOperationExceptionConverter>();
-			services.AddScoped<IExceptionErrorConverter<ObjectDisposedException>, ObjectDisposedExceptionConverter>();
+			services.AddSingleton<IExceptionErrorConverter<InvalidOperationException>, InvalidOperationExceptionConverter>();
+			services.AddSingleton<IExceptionErrorConverter<ObjectDisposedException>, ObjectDisposedExceptionConverter>();
 		}
 
 		public static void AddDatabaseExceptionConverters(this IServiceCollection services)
 		{
-			services.AddScoped<IExceptionErrorConverter<PostgresException>, PostgresExceptionConverter>();
-			services.AddScoped<IExceptionErrorConverter<SocketException>, SocketExceptionConverter>();
-			services.AddScoped<IExceptionErrorConverter<DbUpdateException>, DbUpdateExceptionConverter>();
+			services.AddSingleton<IExceptionErrorConverter<PostgresException>, PostgresExceptionConverter>();
+			services.AddSingleton<IExceptionErrorConverter<SocketException>, SocketExceptionConverter>();
+			services.AddSingleton<IExceptionErrorConverter<DbUpdateException>, DbUpdateExceptionConverter>();
 		}
 	}
 }

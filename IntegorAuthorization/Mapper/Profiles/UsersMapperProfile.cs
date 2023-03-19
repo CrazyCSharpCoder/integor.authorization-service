@@ -9,7 +9,7 @@ namespace IntegorAuthorization.Mapper.Profiles
     {
         public UsersMapperProfile()
         {
-            CreateMap<UserAccount, UserAccountPublicDto>();
+            CreateMap<UserAccount, UserAccountDto>();
 			CreateMap<AddUserAccountDto, UserAccount>();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.ComponentModel.DataAnnotations;
 
-using IntegorAuthorizationModelOptions;
+using static IntegorGlobalConstants.ModelOptions.Authorization.UserAccountOptions;
 
 namespace IntegorAuthorizationModel
 {
@@ -17,11 +17,11 @@ namespace IntegorAuthorizationModel
 
 		[Required]
 		[EmailAddress]
-		[MaxLength(UserAccountOptions.EMailLength)]
+		[MaxLength(EMailLength)]
 		public string Email { get; set; } = null!;
 
 		[Required]
-		[MaxLength(UserAccountOptions.PasswordHashLength)]
+		[MaxLength(PasswordHashLength)]
 		public string PasswordHash { get; set; } = null!;
 		public DateTime PasswordUpdatedDate { get; set; } = DateTime.UtcNow;
 

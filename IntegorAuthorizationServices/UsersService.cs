@@ -38,7 +38,7 @@ namespace IntegorAuthorizationServices
 			_rolesHelper = rolesHelper;
 		}
 
-		public async Task<UserAccountPublicDto> AddAsync(AddUserAccountDto dto)
+		public async Task<UserAccountDto> AddAsync(AddUserAccountDto dto)
 		{
 			UserAccount createdAccount = _mapper.Map<UserAccount>(dto);
 			createdAccount.RoleId = _rolesHelper.RolesEnumToRoleId(UserRoles.User);
@@ -67,12 +67,12 @@ namespace IntegorAuthorizationServices
 			}
 
 			UserRole role = (await _context.GetRoleAsync(createdAccount.RoleId))!;
-			UserAccountPublicDto resultDto = _mapper.MapUserToPublicDto(createdAccount, role);
+			UserAccountDto resultDto = _mapper.MapUserToPublicDto(createdAccount, role);
 
 			return resultDto;
 		}
 
-		public async Task<UserAccountPublicDto?> GetByIdAsync(int id)
+		public async Task<UserAccountDto?> GetByIdAsync(int id)
 		{
 			UserAccount? account = await _context.GetUserByIdAsync(id);
 
@@ -80,12 +80,12 @@ namespace IntegorAuthorizationServices
 				return null;
 
 			UserRole role = (await _context.GetRoleAsync(account.RoleId))!;
-			UserAccountPublicDto resultDto = _mapper.MapUserToPublicDto(account, role);
+			UserAccountDto resultDto = _mapper.MapUserToPublicDto(account, role);
 
 			return resultDto;
 		}
 
-		public async Task<UserAccountPublicDto?> GetByEmailAsync(string email)
+		public async Task<UserAccountDto?> GetByEmailAsync(string email)
 		{
 			UserAccount? account = await _context.GetUserByEmailAsync(email);
 			
@@ -93,7 +93,7 @@ namespace IntegorAuthorizationServices
 				return null;
 
 			UserRole role = (await _context.GetRoleAsync(account.RoleId))!;
-			UserAccountPublicDto resultDto = _mapper.MapUserToPublicDto(account, role);
+			UserAccountDto resultDto = _mapper.MapUserToPublicDto(account, role);
 
 			return resultDto;
 		}

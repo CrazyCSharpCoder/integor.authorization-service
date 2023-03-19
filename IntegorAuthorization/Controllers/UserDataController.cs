@@ -3,13 +3,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
 
 using IntegorAuthorizationResponseDecoration.Attributes;
 
 using IntegorAuthorizationShared.Dto.Users;
 using IntegorAuthorizationShared.Services;
+using IntegorSharedResponseDecorators.Attributes.Authorization;
 
 namespace IntegorAuthorization.Controllers
 {
@@ -35,18 +36,20 @@ namespace IntegorAuthorization.Controllers
 
 		[Authorize]
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpGet("me", Name = GetAccountRoute)]
 		public async Task<IActionResult> GetMeAsync()
 		{
-			UserAccountPublicDto user = await _authentication.GetAuthenticatedUserAsync();
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
 			return Ok(user);
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpGet("by-id/{id}", Name = GetByIdRoute)]
 		public async Task<IActionResult> GetUserByIdAsync(int id)
 		{
-			UserAccountPublicDto? user =  await _users.GetByIdAsync(id);
+			UserAccountDto? user =  await _users.GetByIdAsync(id);
 
 			if (user != null)
 				return Ok(user);
@@ -58,10 +61,11 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpGet("by-email/{email}", Name = GetByEmailRoute)]
 		public async Task<IActionResult> GetUserByEmailAsync([System.ComponentModel.DataAnnotations.EmailAddress] string email)
 		{
-			UserAccountPublicDto? user = await _users.GetByEmailAsync(email);
+			UserAccountDto? user = await _users.GetByEmailAsync(email);
 
 			if (user != null)
 				return Ok(user);

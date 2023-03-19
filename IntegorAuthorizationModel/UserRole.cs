@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static IntegorAuthorizationModelOptions.UserRoleOptions;
+using static IntegorGlobalConstants.ModelOptions.Authorization.UserRoleOptions;
 
 namespace IntegorAuthorizationModel
 {

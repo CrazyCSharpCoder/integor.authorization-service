@@ -4,10 +4,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
+using IntegorPublicDto.Authorization.Users.Input;
+
 using AutoMapper;
 
-using AspErrorHandling;
-using AspErrorHandling.Converters;
+using IntegorErrorsHandling;
+using IntegorErrorsHandling.Converters;
+
+using IntegorSharedResponseDecorators.Attributes.Authorization;
 
 using IntegorAuthorizationResponseDecoration.Attributes;
 
@@ -24,12 +28,13 @@ namespace IntegorAuthorization.Controllers
 {
     using static Constants.RouteNames.AuthRouteNames;
 
-    using Dto.Authentication;
-
 	[ApiController]
 	[Route("auth")]
 	public class AuthenticationController : ControllerBase
 	{
+		private IMapper _mapper;
+		private IStringErrorConverter _stringConverter;
+
 		private IUserValidationService _userValidation;
 		private IUsersService _users;
 
@@ -40,10 +45,10 @@ namespace IntegorAuthorization.Controllers
 
 		private IAuthenticationAbstractionService _authentication;
 
-		private IStringErrorConverter _stringConverter;
-		private IMapper _mapper;
-
 		public AuthenticationController(
+			IMapper mapper,
+			IStringErrorConverter stringConverter,
+
 			IUserValidationService userValidation,
 			IUsersService users,
 
@@ -52,10 +57,7 @@ namespace IntegorAuthorization.Controllers
 			IPasswordValidationService passwordValidator,
 			ISecurityDataAccessService securityAccess,
 
-			IAuthenticationAbstractionService authentication,
-
-			IStringErrorConverter stringConverter,
-			IMapper mapper)
+			IAuthenticationAbstractionService authentication)
 		{
 			_userValidation = userValidation;
 			_users = users;
@@ -72,6 +74,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("register", Name = RegisterRoute)]
 		public async Task<IActionResult> RegisterAsync([FromBody] RegisterUserDto dto)
 		{
@@ -91,18 +94,18 @@ namespace IntegorAuthorization.Controllers
 			addDto.PasswordHash = _passwordEncryption.Encrypt(saltedPassword);
 			addDto.PasswordSalt = passwordSalt;
 
-			UserAccountPublicDto user = await _users.AddAsync(addDto);
-
+			UserAccountDto user = await _users.AddAsync(addDto);
 			await _authentication.LoginAsync(user);
 
 			return Ok(user);
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("login", Name = LoginRoute)]
 		public async Task<IActionResult> LoginAsync(LoginUserDto dto)
 		{
-			UserAccountPublicDto? user = await _users.GetByEmailAsync(dto.Email);
+			UserAccountDto? user = await _users.GetByEmailAsync(dto.Email);
 
 			if (user == null)
 				return WrongCredenrialsProvided();
@@ -124,11 +127,12 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("refresh", Name = RefreshRoute)]
 		[Authorize(AuthenticationSchemes = JwtRefreshAuthenticationDefaults.AuthenticationScheme)]
 		public async Task<IActionResult> RefreshAsync()
 		{
-			UserAccountPublicDto user = await _authentication.GetAuthenticatedUserAsync();
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
 			await _authentication.LoginAsync(user);
 
 			return Ok(user);
