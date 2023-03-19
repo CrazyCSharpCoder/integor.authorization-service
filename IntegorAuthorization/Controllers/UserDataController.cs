@@ -10,6 +10,7 @@ using IntegorAuthorizationResponseDecoration.Attributes;
 
 using IntegorAuthorizationShared.Dto.Users;
 using IntegorAuthorizationShared.Services;
+using IntegorSharedResponseDecorators.Attributes.Authorization;
 
 namespace IntegorAuthorization.Controllers
 {
@@ -35,6 +36,7 @@ namespace IntegorAuthorization.Controllers
 
 		[Authorize]
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpGet("me", Name = GetAccountRoute)]
 		public async Task<IActionResult> GetMeAsync()
 		{
@@ -43,6 +45,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpGet("by-id/{id}", Name = GetByIdRoute)]
 		public async Task<IActionResult> GetUserByIdAsync(int id)
 		{
@@ -58,6 +61,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpGet("by-email/{email}", Name = GetByEmailRoute)]
 		public async Task<IActionResult> GetUserByEmailAsync([System.ComponentModel.DataAnnotations.EmailAddress] string email)
 		{

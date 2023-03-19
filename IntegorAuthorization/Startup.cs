@@ -26,7 +26,7 @@ namespace IntegorAuthorization
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
+			services.AddConfiguredControllers();
 			services.AddFilters();
 
 			services.AddDatabase(Configuration.GetConnectionString("IntegorAuthorizationDatabase"));

@@ -13,27 +13,27 @@ using IntegorAuthorizationShared.Dto.Roles;
 
 namespace IntegorAuthorizationResponseDecoration.Decorators
 {
-	internal class RolesToPublicDtoDecorator : IResponseBodyDecorator
+	public class RolesEnumerableToPublicDtoDecorator : IResponseObjectDecorator
 	{
 		private IMapper _mapper;
 
-		public RolesToPublicDtoDecorator(IMapper mapper)
+		public RolesEnumerableToPublicDtoDecorator(IMapper mapper)
 		{
 			_mapper = mapper;
 		}
 
-		public ResponseBodyDecorationResult Decorate(object? bodyObject)
+		public ResponseBodyDecorationResult Decorate(object? responseObject)
 		{
-			if (bodyObject is UserRole role)
+			if (responseObject is UserRole role)
 				return new ResponseBodyDecorationResult(ToFullPublicRole(role));
 
-			if (bodyObject is UserRoleShortDto shortRole)
+			if (responseObject is UserRoleShortDto shortRole)
 				return new ResponseBodyDecorationResult(ToShortPublicRole(shortRole));
 
-			if (bodyObject is IEnumerable<UserRole> roles)
+			if (responseObject is IEnumerable<UserRole> roles)
 				return new ResponseBodyDecorationResult(roles.Select(r => ToFullPublicRole(r)));
 
-			if (bodyObject is IEnumerable<UserRoleShortDto> shortRoles)
+			if (responseObject is IEnumerable<UserRoleShortDto> shortRoles)
 				return new ResponseBodyDecorationResult(shortRoles.Select(r => ToShortPublicRole(r)));
 
 			return new ResponseBodyDecorationResult(false);

@@ -12,7 +12,7 @@ using IntegorAuthorizationShared.Dto.Users;
 
 namespace IntegorAuthorizationResponseDecoration.Decorators
 {
-	internal class UserToPublicDtoDecorator : IResponseBodyDecorator
+	public class UserToPublicDtoDecorator : IResponseObjectDecorator
 	{
 		private IMapper _mapper;
 
@@ -21,9 +21,9 @@ namespace IntegorAuthorizationResponseDecoration.Decorators
 			_mapper = mapper;
         }
 
-        public ResponseBodyDecorationResult Decorate(object? bodyObject)
+        public ResponseBodyDecorationResult Decorate(object? responseObject)
 		{
-			if (bodyObject is not UserAccountDto userInternalDto)
+			if (responseObject is not UserAccountDto userInternalDto)
 				return new ResponseBodyDecorationResult(false);
 
 			var publicUser = _mapper.Map(userInternalDto, new PublicDto.Users.UserAccountInfoDto());

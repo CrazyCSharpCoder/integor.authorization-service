@@ -11,6 +11,8 @@ using AutoMapper;
 using IntegorErrorsHandling;
 using IntegorErrorsHandling.Converters;
 
+using IntegorSharedResponseDecorators.Attributes.Authorization;
+
 using IntegorAuthorizationResponseDecoration.Attributes;
 
 using IntegorAuthorizationModel;
@@ -72,6 +74,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("register", Name = RegisterRoute)]
 		public async Task<IActionResult> RegisterAsync([FromBody] RegisterUserDto dto)
 		{
@@ -98,6 +101,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("login", Name = LoginRoute)]
 		public async Task<IActionResult> LoginAsync(LoginUserDto dto)
 		{
@@ -123,6 +127,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("refresh", Name = RefreshRoute)]
 		[Authorize(AuthenticationSchemes = JwtRefreshAuthenticationDefaults.AuthenticationScheme)]
 		public async Task<IActionResult> RefreshAsync()
