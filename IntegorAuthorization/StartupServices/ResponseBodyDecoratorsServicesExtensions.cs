@@ -1,23 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using IntegorSharedResponseDecorators.Decorators;
-using IntegorSharedResponseDecorators.Decorators.Authorization;
-
+using IntegorSharedResponseDecorators.Authorization.Decorators;
 using IntegorAuthorizationResponseDecoration.Decorators;
 
 namespace IntegorAuthorization.StartupServices
 {
 	public static class ResponseBodyDecoratorsServicesExtensions
 	{
-		public static void AddResponseDecorators(this IServiceCollection services)
+		public static void AddAuthorizationResponseDecorators(this IServiceCollection services)
 		{
-			services.AddSingleton<ErrorResponseBodyDecorator>();
-
 			services.AddSingleton<UserToPublicDtoDecorator>();
-			services.AddSingleton<UserResponseBodyDecorator>();
+			services.AddSingleton<UserResponseObjectDecorator>();
 
 			services.AddSingleton<RolesEnumerableToPublicDtoDecorator>();
-			services.AddSingleton<UserRolesCollectionResponseBodyDecorator>();
+			services.AddSingleton<UserRolesEnumerableResponseObjectDecorator>();
 		}
 	}
 }

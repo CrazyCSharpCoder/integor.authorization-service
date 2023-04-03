@@ -11,6 +11,8 @@ using IntegorAuthorizationServices.Security.Password;
 using IntegorAuthorizationShared.Services.Unsafe;
 using IntegorAuthorizationServices.Unsafe;
 
+using IntegorAuthorizationAspServices;
+
 namespace IntegorAuthorization.StartupServices
 {
 	public static class LogicServicesExtensions
@@ -25,16 +27,25 @@ namespace IntegorAuthorization.StartupServices
 			services.AddSingleton<IByteStringifyingService, HexadecimalByteStringifyingService>();
 		}
 
-		public static void AddUsers(this IServiceCollection services)
+		public static IServiceCollection AddUsers(this IServiceCollection services)
 		{
 			services.AddScoped<IUserValidationService, UserValidationService>();
 			services.AddScoped<IUsersService, UsersService>();
+
+			return services;
 		}
 
-		public static void AddRoles(this IServiceCollection services)
+		public static IServiceCollection AddRoles(this IServiceCollection services)
 		{
 			services.AddScoped<IUserRolesService, UserRolesService>();
 			services.AddScoped<IEditUserRolesService, EditUserRolesService>();
+
+			return services;
+		}
+
+		public static IServiceCollection AddAuthenticationLogic(this IServiceCollection services)
+		{
+			return services.AddScoped<IAuthenticationAbstractionService, AuthenticationAbstractionService>();
 		}
 	}
 }

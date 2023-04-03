@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using IntegorErrorsHandling;
 using IntegorErrorsHandling.Converters;
 
-using IntegorAuthorizationResponseDecoration.Attributes;
+using IntegorSharedResponseDecorators.Authorization.Attributes;
 
 using IntegorAuthorizationShared.Dto.Users;
 using IntegorAuthorizationShared.Services;
-using IntegorSharedResponseDecorators.Attributes.Authorization;
+
+using IntegorAuthorizationResponseDecoration.Attributes;
 
 namespace IntegorAuthorization.Controllers
 {

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 using IntegorAuthorizationModel;
+using IntegorLogicShared.Types.Authorization;
 
-using IntegorAuthorizationShared.Types;
 using IntegorAuthorizationShared.Services;
 using IntegorAuthorizationShared.Services.Unsafe;
-using IntegorAuthorizationShared.Helpers;
+
+using IntegorLogicShared.MicroserviceSpecific.Authorization;
 
 namespace IntegorAuthorization
 {
@@ -18,21 +19,22 @@ namespace IntegorAuthorization
 	{
 		private Dictionary<UserRoles, UserRole> _rolesData = new Dictionary<UserRoles, UserRole>()
 		{
+			//{
+			//	UserRoles.Admin, new UserRole()
+			//	{
+			//		Title = "Admin",
+			//		Description = "Advanced functional is available, and also can manage moderators."
+			//	}
+			//},
+			//{
+			//	UserRoles.Moderator, new UserRole()
+			//	{
+			//		Title = "Moderator",
+			//		Description = "Advanced functional is available."
+			//	}
+			//},
+
 			// TODO set descriptions to cover context of particular application concept
-			{
-				UserRoles.Admin, new UserRole()
-				{
-					Title = "Admin",
-					Description = "Advanced functional is available, and also can manage moderators."
-				}
-			},
-			{
-				UserRoles.Moderator, new UserRole()
-				{
-					Title = "Moderator",
-					Description = "Advanced functional is available."
-				}
-			},
 			{
 				UserRoles.User, new UserRole()
 				{
@@ -46,19 +48,19 @@ namespace IntegorAuthorization
 		private IEditUserRolesService _editRolesService;
 
 		private IMapper _mapper;
-		private UserRolesConverter _helper;
+		private UserRolesEnumConverter _rolesHelper;
 
 		public ApplicationInitializer(
 			IUserRolesService rolesService,
 			IEditUserRolesService editRolesService,
 			IMapper mapper,
-			UserRolesConverter helper)
+			UserRolesEnumConverter rolesHelper)
 		{
 			_rolesService = rolesService;
 			_editRolesService = editRolesService;
 
 			_mapper = mapper;
-			_helper = helper;
+			_rolesHelper = rolesHelper;
 		}
 
 		public async Task EnsureRolesCreatedAsync()
@@ -67,7 +69,7 @@ namespace IntegorAuthorization
 
 			foreach (UserRoles role in Enum.GetValues<UserRoles>())
 			{
-				if (!roles.Any(r => r.Id == _helper.RolesEnumToRoleId(role)))
+				if (!roles.Any(r => r.Id == _rolesHelper.RolesEnumToRoleId(role)))
 					await CreateRoleAsync(role);
 			} 
 		}
@@ -75,7 +77,7 @@ namespace IntegorAuthorization
 		private async Task CreateRoleAsync(UserRoles role)
 		{
 			UserRole roleEntry = _mapper.Map<UserRole>(_rolesData[role]);
-			roleEntry.Id = _helper.RolesEnumToRoleId(role);
+			roleEntry.Id = _rolesHelper.RolesEnumToRoleId(role);
 
 			await _editRolesService.AddAsync(roleEntry);
 		}

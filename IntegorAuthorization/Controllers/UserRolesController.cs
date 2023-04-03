@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
-using IntegorSharedResponseDecorators.Attributes.Authorization;
+using IntegorSharedResponseDecorators.Authorization.Attributes;
 
 using IntegorAuthorizationResponseDecoration.Attributes;
 

@@ -8,14 +8,14 @@ using System.Security.Claims;
 
 using Microsoft.AspNetCore.Http;
 
-using IntegorAuthorizationGlobalConstants;
+using ExtensibleRefreshJwtAuthentication.Access.Tokens;
+using ExtensibleRefreshJwtAuthentication.Refresh.Tokens;
 
-using IntegorAuthorizationAspShared.ConfigurationProviders;
+using IntegorPublicDto.Authorization.Users;
+using IntegorAspHelpers.MicroservicesInteraction.Authorization;
 
 using IntegorAuthorizationShared.Dto.Users;
 using IntegorAuthorizationShared.Services;
-
-using AdvancedJwtAuthentication.Services;
 
 namespace IntegorAuthorizationAspServices
 {
@@ -23,53 +23,58 @@ namespace IntegorAuthorizationAspServices
 	{
 		private HttpContext _http;
 
-		private IHttpContextTokensAccessor _httpTokens;
-		private IResolveTokensService _tokenService;
+		private IProcessRequestAccessTokenAccessor _accessTokenAccess;
+		private IProcessRequestRefreshTokenAccessor _refreshTokenAccess;
 
+		private IAccessTokenResolver _accessResolver;
+		private IRefreshTokenResolver _refreshResolver;
+
+		private IUserClaimsParser _claimsParser;
 		private IUsersService _users;
 
 		public AuthenticationAbstractionService(
 			IHttpContextAccessor httpAccessor,
-			IHttpContextTokensAccessor httpTokens,
-			IResolveTokensService tokenService,
+
+			IProcessRequestAccessTokenAccessor accessTokenAccess,
+			IProcessRequestRefreshTokenAccessor refreshTokenAccess,
+
+			IAccessTokenResolver accessResolver,
+			IRefreshTokenResolver refreshResolver,
+			IUserClaimsParser claimsParser,
 
 			IUsersService users)
 		{
 			_http = httpAccessor.HttpContext;
 
-			_httpTokens = httpTokens;
-			_tokenService = tokenService;
+			_accessTokenAccess = accessTokenAccess;
+			_refreshTokenAccess = refreshTokenAccess;
+
+			_accessResolver = accessResolver;
+			_refreshResolver = refreshResolver;
+			_claimsParser = claimsParser;
 
 			_users = users;
 		}
 
-		public async Task LoginAsync(UserAccountDto user)
+		public async Task LoginAsync(UserAccountInfoDto user)
 		{
-			Claim[] claims = new Claim[]
-			{
-				new Claim(ClaimsIdentity.DefaultNameClaimType, user.EMail),
-				new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Id.ToString())
-			};
+			_claimsParser.UserToClaims(user);
 
-			string accessToken = await _tokenService.GenerateAccessTokenAsync(claims);
-			string refreshToken = await _tokenService.GenerateRefreshTokenAsync(claims);
+			Claim[] claims = _claimsParser.UserToClaims(user);
 
-			_httpTokens.PutAccessToken(accessToken);
-			_httpTokens.PutRefreshToken(refreshToken);
+			string accessToken = await _accessResolver.GenerateTokenAsync(claims);
+			string refreshToken = await _refreshResolver.GenerateTokenAsync(claims);
+
+			_accessTokenAccess.AttachToResponse(accessToken);
+			_refreshTokenAccess.AttachToResponse(refreshToken);
 		}
 
 		public async Task LogoutAsync()
 		{
-			_httpTokens.DeleteAccessToken();
-			_httpTokens.DeleteRefreshToken();
-		}
+			// TODO implement logout
 
-		public async Task<bool> RefreshRequiredAsync()
-		{
-			Claim? refreshClaim = _http.User.Claims.FirstOrDefault(
-				claim => claim.Type == AuthenticationConstants.RefreshRequiredClaimType);
-
-			return refreshClaim != null && refreshClaim.Value == true.ToString();
+			//_httpTokens.DeleteAccessToken();
+			//_httpTokens.DeleteRefreshToken();
 		}
 
 		public async Task<UserAccountDto> GetAuthenticatedUserAsync()
@@ -79,7 +84,8 @@ namespace IntegorAuthorizationAspServices
 			// TODO understand why claim.Type != ClaimsIdentity.DefaultNameClaimType and how to parse URI of a claim type
 			// Claim? usernameClaim = principal.Claims.FirstOrDefault(claim => claim.Type == ClaimsIdentity.DefaultNameClaimType);
 
-			Claim? usernameClaim = principal.Claims.FirstOrDefault(claim => claim.Type == "unique_name");
+			string usernameClaimName = _claimsParser.GetClaimNames().UsernameClaimName;
+			Claim? usernameClaim = principal.Claims.FirstOrDefault(claim => claim.Type == usernameClaimName);
 
 			if (usernameClaim == null)
 				// TODO to think about a better exception message

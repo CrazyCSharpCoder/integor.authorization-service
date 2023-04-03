@@ -21,13 +21,13 @@ namespace IntegorAuthorizationResponseDecoration.Decorators
 			_mapper = mapper;
         }
 
-        public ResponseBodyDecorationResult Decorate(object? responseObject)
+        public ResponseObjectDecorationResult Decorate(object? responseObject)
 		{
 			if (responseObject is not UserAccountDto userInternalDto)
-				return new ResponseBodyDecorationResult(false);
+				return new ResponseObjectDecorationResult(false);
 
 			var publicUser = _mapper.Map(userInternalDto, new PublicDto.Users.UserAccountInfoDto());
-			return new ResponseBodyDecorationResult(publicUser);
+			return new ResponseObjectDecorationResult(publicUser);
 		}
 	}
 }

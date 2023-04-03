@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-
-using IntegorAspHelpers.Middleware.WebApiResponse;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +10,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.EntityFrameworkCore;
+
+using IntegorAspHelpers.Middleware.WebApiResponse;
+
+using ExtensibleRefreshJwtAuthentication.Access.Tokens;
+using ExtensibleRefreshJwtAuthentication.Refresh.Tokens;
+
+using IntegorServiceConfiguration;
+using IntegorAuthorizationAspServices.TokenResolvers;
 
 namespace IntegorAuthorization
 {
@@ -26,13 +34,24 @@ namespace IntegorAuthorization
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddConfiguredControllers();
-			services.AddFilters();
+			Type exceptionBaseConverter = services.AddExceptionConverting();
+
+			IEnumerable<Type> exceptionConverters = services
+				.AddDatabaseExceptionConverters()
+				.Prepend(exceptionBaseConverter);
+
+			services.AddPrimaryTypesErrorConverters();
+
+			services.AddConfiguredControllers(exceptionConverters.ToArray());
 
 			services.AddDatabase(Configuration.GetConnectionString("IntegorAuthorizationDatabase"));
 
 			services.AddAuthenticationSchemes();
 			services.AddAuthenticationServices();
+			services.AddAuthenticationTokensProcessing();
+
+			services.AddSingleton<IAccessTokenResolver, JwtAccessTokenResolver>();
+			services.AddSingleton<IRefreshTokenResolver, JwtRefreshTokenResolver>();
 
 			services.AddAutoMapper();
 
@@ -40,16 +59,15 @@ namespace IntegorAuthorization
 			services.AddConfigurationProviders();
 
 			services.AddResponseDecorators();
-
-			services.AddTypesErrorConverters();
-			services.AddStandardExceptionConverters();
-			services.AddDatabaseExceptionConverters();
+			services.AddAuthorizationResponseDecorators();
 
 			services.AddSecurity();
 			services.AddUsers();
 			services.AddRoles();
 
-			services.AddSpecial();
+			services.AddAuthenticationLogic();
+
+			services.AddScoped<ApplicationInitializer>();
 		}
 
 		public void Configure(IApplicationBuilder app, IServiceProvider provider)

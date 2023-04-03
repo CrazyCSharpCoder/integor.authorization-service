@@ -7,12 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ExtensibleRefreshJwtAuthentication" Version="1.0.0.6" />
+    <PackageReference Include="IntegorAspHelpers" Version="2.0.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdvancedJwtAuthentication\AdvancedJwtAuthentication.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationAspShared\IntegorAuthorizationAspShared.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationGlobalConstants\IntegorAuthorizationGlobalConstants.csproj" />
     <ProjectReference Include="..\IntegorAuthorizationModel\IntegorAuthorizationModel.csproj" />
