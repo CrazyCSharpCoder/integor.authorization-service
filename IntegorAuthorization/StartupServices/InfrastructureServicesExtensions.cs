@@ -6,7 +6,7 @@ using ExtensibleRefreshJwtAuthentication;
 using ExtensibleRefreshJwtAuthentication.Access;
 using ExtensibleRefreshJwtAuthentication.Refresh;
 
-using IntegorLogicShared.MicroserviceSpecific.Authorization;
+using IntegorLogicShared.IntegorServices.Authorization;
 
 using IntegorAuthorizationAspShared.ConfigurationProviders;
 using IntegorAuthorizationAspServices.ConfigurationProviders;

@@ -8,9 +8,9 @@ using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Options;
 
 using ExtensibleRefreshJwtAuthentication;
-using IntegorAspHelpers.MicroservicesInteraction.Authorization;
 
 using IntegorAuthorizationAspShared.ConfigurationProviders;
 
@@ -19,14 +19,14 @@ namespace IntegorAuthorizationAspServices.Internal
 	internal class TokenResolvingHelper
 	{
 		private IAuthenticationConfigurationProvider _config;
-		private IClaimTypesNamer _claimTypes;
+		private ClaimTypeNames _claimTypes;
 
 		public TokenResolvingHelper(
 			IAuthenticationConfigurationProvider configuration,
-			IClaimTypesNamer claimTypes)
+			IOptions<ClaimTypeNames> claimTypesOptions)
         {
 			_config = configuration;
-			_claimTypes = claimTypes;
+			_claimTypes = claimTypesOptions.Value;
 		}
 
         public TokenValidationParameters CreateTokenValidationParameters()

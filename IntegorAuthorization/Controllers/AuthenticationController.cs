@@ -102,7 +102,7 @@ namespace IntegorAuthorization.Controllers
 
 		[DecorateUserResponse]
 		[HttpPost("login", Name = LoginRoute)]
-		public async Task<IActionResult> LoginAsync(LoginUserDto dto)
+		public async Task<IActionResult> LoginAsync([FromBody] LoginUserDto dto)
 		{
 			UserAccountDto? user = await _users.GetByEmailAsync(dto.EMail);
 
@@ -140,7 +140,7 @@ namespace IntegorAuthorization.Controllers
 			return BadRequest(error);
 		}
 
-		private async Task<UserAccountInfoDto> LoginAsPublicAsync(UserAccountDto user)
+		private async Task<UserAccountInfoDto> LoginAsPublicAsync([FromBody] UserAccountDto user)
 		{
 			UserAccountInfoDto userPublic = _mapper.Map<UserAccountInfoDto>(user);
 			await _authentication.LoginAsync(userPublic);

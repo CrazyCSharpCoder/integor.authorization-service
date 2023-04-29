@@ -7,17 +7,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-
-using Microsoft.EntityFrameworkCore;
 
 using IntegorAspHelpers.Middleware.WebApiResponse;
 
-using ExtensibleRefreshJwtAuthentication.Access.Tokens;
-using ExtensibleRefreshJwtAuthentication.Refresh.Tokens;
+using ExtensibleRefreshJwtAuthentication.Access;
+using ExtensibleRefreshJwtAuthentication.Refresh;
+
+using IntegorAuthorizationAspServices.TokenResolvers;
 
 using IntegorServiceConfiguration;
-using IntegorAuthorizationAspServices.TokenResolvers;
+using IntegorServiceConfiguration.Authentication;
+using IntegorServiceConfiguration.Controllers;
 
 namespace IntegorAuthorization
 {
@@ -27,40 +27,55 @@ namespace IntegorAuthorization
 	{
 		public IConfiguration Configuration { get; }
 
+		private IConfiguration _cookieTypesConfiguration;
+
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
+
+			_cookieTypesConfiguration = new ConfigurationBuilder()
+				.AddJsonFile("cookie_types_configuration.json")
+				.Build();
 		}
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			// Configuring errors handling
 			Type exceptionBaseConverter = services.AddExceptionConverting();
 
 			IEnumerable<Type> exceptionConverters = services
 				.AddDatabaseExceptionConverters()
 				.Prepend(exceptionBaseConverter);
-
+			
 			services.AddPrimaryTypesErrorConverters();
+			services.AddResponseErrorsObjectCompiler();
 
-			services.AddConfiguredControllers(exceptionConverters.ToArray());
+			// Configuring response decorators
+			services.AddErrorResponseDecorator();
+			services.AddAuthorizationResponseDecorators();
 
+			// Configuring MVC
+			services.AddDefaultControllersConfiguration(exceptionConverters.ToArray());
+
+			// Configuring infrastructure
 			services.AddDatabase(Configuration.GetConnectionString("IntegorAuthorizationDatabase"));
-
+			
 			services.AddAuthenticationSchemes();
-			services.AddAuthenticationServices();
-			services.AddAuthenticationTokensProcessing();
 
 			services.AddSingleton<IAccessTokenResolver, JwtAccessTokenResolver>();
 			services.AddSingleton<IRefreshTokenResolver, JwtRefreshTokenResolver>();
 
+			services.AddAuthorizationServices(_cookieTypesConfiguration);
+			services.AddOnServiceProcessingTokenAuthentication();
+
 			services.AddAutoMapper();
 
-			services.AddHttpContextServices();
+			services.AddHttpContextAccessor();
 			services.AddConfigurationProviders();
 
-			services.AddResponseDecorators();
-			services.AddAuthorizationResponseDecorators();
+			services.AddDefaultStatusCodeResponseBodyFactory();
 
+			// Configuring logic
 			services.AddSecurity();
 			services.AddUsers();
 			services.AddRoles();
@@ -72,8 +87,8 @@ namespace IntegorAuthorization
 
 		public void Configure(IApplicationBuilder app, IServiceProvider provider)
 		{
-			app.UseWebApiExceptionsHandling(WriteJsonBody);
-			app.UseWebApiStatusCodesHandling(WriteJsonBody);
+			app.UseWebApiExceptionsHandling();
+			app.UseWebApiStatusCodesHandling();
 
 			app.UseStaticFiles();
 
@@ -96,8 +111,5 @@ namespace IntegorAuthorization
 
 			await initializer.EnsureRolesCreatedAsync();
 		}
-
-		private async Task WriteJsonBody(HttpResponse response, object body)
-			 => await response.WriteAsJsonAsync(body);
 	}
 }

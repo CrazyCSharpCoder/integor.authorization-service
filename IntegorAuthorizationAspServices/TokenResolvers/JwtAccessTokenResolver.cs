@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Options;
 
 using ExtensibleRefreshJwtAuthentication;
-using ExtensibleRefreshJwtAuthentication.Access.Tokens;
+using ExtensibleRefreshJwtAuthentication.Access;
 
 using IntegorAuthorizationAspShared.ConfigurationProviders;
 
@@ -24,9 +25,9 @@ namespace IntegorAuthorizationAspServices.TokenResolvers
 
 		public JwtAccessTokenResolver(
 			IAuthenticationConfigurationProvider configuration,
-			IClaimTypesNamer claimTypes)
+			IOptions<ClaimTypeNames> claimTypesOptions)
 		{
-			_helper = new TokenResolvingHelper(configuration, claimTypes);
+			_helper = new TokenResolvingHelper(configuration, claimTypesOptions);
 		}
 
 		public async Task<string> GenerateTokenAsync(IEnumerable<Claim> claims)

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 using IntegorAuthorizationModel;
-using IntegorLogicShared.Types.Authorization;
+using IntegorLogicShared.Types.IntegorServices.Authorization;
 
 using IntegorAuthorizationShared.Services;
 using IntegorAuthorizationShared.Services.Unsafe;
 
-using IntegorLogicShared.MicroserviceSpecific.Authorization;
+using IntegorLogicShared.IntegorServices.Authorization;
 
 namespace IntegorAuthorization
 {

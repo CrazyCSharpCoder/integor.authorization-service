@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.Storage;
 
-using IntegorLogicShared.Types.Authorization;
-using IntegorLogicShared.MicroserviceSpecific.Authorization;
+using IntegorLogicShared.Types.IntegorServices.Authorization;
+using IntegorLogicShared.IntegorServices.Authorization;
 
 using IntegorAuthorizationModel;
 
