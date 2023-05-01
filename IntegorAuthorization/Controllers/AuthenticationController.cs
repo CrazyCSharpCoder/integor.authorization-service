@@ -15,6 +15,7 @@ using IntegorSharedResponseDecorators.Authorization.Attributes;
 
 using IntegorPublicDto.Authorization.Users;
 
+using ExtensibleRefreshJwtAuthentication.Access;
 using ExtensibleRefreshJwtAuthentication.Refresh;
 
 using IntegorAuthorizationModel;
@@ -147,6 +148,9 @@ namespace IntegorAuthorization.Controllers
 		[DecorateUserResponse]
 		[DecorateUserToPublicDto]
 		[HttpPost("logout", Name = LogoutRoute)]
+		[Authorize(AuthenticationSchemes =
+			$"{AccessTokenAuthenticationDefaults.AuthenticationScheme}," +
+			$"{RefreshTokenAuthenticationDefaults.AuthenticationScheme}")]
 		public async Task<IActionResult> LogoutAsync()
 		{
 			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
