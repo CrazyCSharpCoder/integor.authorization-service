@@ -21,28 +21,15 @@ namespace IntegorAuthorization.Controllers
 	[Route("users")]
 	public class UserDataController : ControllerBase
 	{
-		private IAuthenticationAbstractionService _authentication;
 		private IUsersService _users;
 		private IStringErrorConverter _stringErrorConverter;
 
 		public UserDataController(
-			IAuthenticationAbstractionService authentication,
 			IUsersService users,
 			IStringErrorConverter stringErrorConverter)
 		{
-			_authentication = authentication;
 			_users = users;
 			_stringErrorConverter = stringErrorConverter;
-		}
-
-		[Authorize]
-		[DecorateUserResponse]
-		[DecorateUserToPublicDto]
-		[HttpGet("me", Name = GetAccountRoute)]
-		public async Task<IActionResult> GetMeAsync()
-		{
-			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
-			return Ok(user);
 		}
 
 		[DecorateUserResponse]

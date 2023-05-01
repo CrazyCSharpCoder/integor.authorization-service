@@ -124,6 +124,16 @@ namespace IntegorAuthorization.Controllers
 			return Ok(await LoginAsPublicAsync(user));
 		}
 
+		[Authorize]
+		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
+		[HttpGet("me", Name = GetAccountRoute)]
+		public async Task<IActionResult> GetMeAsync()
+		{
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
+			return Ok(user);
+		}
+
 		[DecorateUserResponse]
 		[DecorateUserToPublicDto]
 		[HttpPost("refresh", Name = RefreshRoute)]
