@@ -4,7 +4,7 @@
 	{
 		public const string RegisterRoute = "registerRoute";
 		public const string LoginRoute = "loginRoute";
-		//public const string LogoutRoute = "logoutRoute";
+		public const string LogoutRoute = "logoutRoute";
 		public const string RefreshRoute = "refreshRoute";
 	}
 }

@@ -101,6 +101,7 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("login", Name = LoginRoute)]
 		public async Task<IActionResult> LoginAsync([FromBody] LoginUserDto dto)
 		{
@@ -124,12 +125,24 @@ namespace IntegorAuthorization.Controllers
 		}
 
 		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
 		[HttpPost("refresh", Name = RefreshRoute)]
 		[Authorize(AuthenticationSchemes = RefreshTokenAuthenticationDefaults.AuthenticationScheme)]
 		public async Task<IActionResult> RefreshAsync()
 		{
 			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
 			return Ok(await LoginAsPublicAsync(user));
+		}
+
+		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
+		[HttpPost("logout", Name = LogoutRoute)]
+		public async Task<IActionResult> LogoutAsync()
+		{
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
+			await _authentication.LogoutAsync();
+
+			return Ok(user);
 		}
 
 		private IActionResult WrongCredenrialsProvided()

@@ -79,10 +79,8 @@ namespace IntegorAuthorizationAspServices
 
 		public async Task LogoutAsync()
 		{
-			// TODO implement logout
-
-			//_httpTokens.DeleteAccessToken();
-			//_httpTokens.DeleteRefreshToken();
+			_accessTokenAccessor.DeleteFromResponse();
+			_refreshTokenAccessor.DeleteFromResponse();
 		}
 
 		public async Task<UserAccountDto> GetAuthenticatedUserAsync()
