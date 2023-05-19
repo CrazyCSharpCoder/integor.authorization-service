@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using IntegorPublicDto.Authorization.Users;
+
 namespace IntegorAuthorizationShared.Services
 {
-    using Dto.Users;
+	using Dto.Users;
 
     public interface IAuthenticationAbstractionService
 	{
-		Task LoginAsync(UserAccountDto user);
+		Task LoginAsync(UserAccountInfoDto user);
 		Task LogoutAsync();
 
-		Task<bool> RefreshRequiredAsync();
 		Task<UserAccountDto> GetAuthenticatedUserAsync();
 	}
 }

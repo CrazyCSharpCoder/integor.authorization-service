@@ -11,9 +11,12 @@ using AutoMapper;
 using IntegorErrorsHandling;
 using IntegorErrorsHandling.Converters;
 
-using IntegorSharedResponseDecorators.Attributes.Authorization;
+using IntegorSharedResponseDecorators.Authorization.Attributes;
 
-using IntegorAuthorizationResponseDecoration.Attributes;
+using IntegorPublicDto.Authorization.Users;
+
+using ExtensibleRefreshJwtAuthentication.Access;
+using ExtensibleRefreshJwtAuthentication.Refresh;
 
 using IntegorAuthorizationModel;
 
@@ -22,7 +25,7 @@ using IntegorAuthorizationShared.Services;
 using IntegorAuthorizationShared.Services.Security;
 using IntegorAuthorizationShared.Services.Security.Password;
 
-using AdvancedJwtAuthentication.Refresh;
+using IntegorAuthorizationResponseDecoration.Attributes;
 
 namespace IntegorAuthorization.Controllers
 {
@@ -95,17 +98,15 @@ namespace IntegorAuthorization.Controllers
 			addDto.PasswordSalt = passwordSalt;
 
 			UserAccountDto user = await _users.AddAsync(addDto);
-			await _authentication.LoginAsync(user);
-
-			return Ok(user);
+			return Ok(await LoginAsPublicAsync(user));
 		}
 
 		[DecorateUserResponse]
 		[DecorateUserToPublicDto]
 		[HttpPost("login", Name = LoginRoute)]
-		public async Task<IActionResult> LoginAsync(LoginUserDto dto)
+		public async Task<IActionResult> LoginAsync([FromBody] LoginUserDto dto)
 		{
-			UserAccountDto? user = await _users.GetByEmailAsync(dto.Email);
+			UserAccountDto? user = await _users.GetByEmailAsync(dto.EMail);
 
 			if (user == null)
 				return WrongCredenrialsProvided();
@@ -121,19 +122,39 @@ namespace IntegorAuthorization.Controllers
 			if (!passwordValid)
 				return WrongCredenrialsProvided();
 
-			await _authentication.LoginAsync(user);
+			return Ok(await LoginAsPublicAsync(user));
+		}
 
+		[Authorize]
+		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
+		[HttpGet("me", Name = GetAccountRoute)]
+		public async Task<IActionResult> GetMeAsync()
+		{
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
 			return Ok(user);
 		}
 
 		[DecorateUserResponse]
 		[DecorateUserToPublicDto]
 		[HttpPost("refresh", Name = RefreshRoute)]
-		[Authorize(AuthenticationSchemes = JwtRefreshAuthenticationDefaults.AuthenticationScheme)]
+		[Authorize(AuthenticationSchemes = RefreshTokenAuthenticationDefaults.AuthenticationScheme)]
 		public async Task<IActionResult> RefreshAsync()
 		{
 			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
-			await _authentication.LoginAsync(user);
+			return Ok(await LoginAsPublicAsync(user));
+		}
+
+		[DecorateUserResponse]
+		[DecorateUserToPublicDto]
+		[HttpPost("logout", Name = LogoutRoute)]
+		[Authorize(AuthenticationSchemes =
+			$"{AccessTokenAuthenticationDefaults.AuthenticationScheme}," +
+			$"{RefreshTokenAuthenticationDefaults.AuthenticationScheme}")]
+		public async Task<IActionResult> LogoutAsync()
+		{
+			UserAccountDto user = await _authentication.GetAuthenticatedUserAsync();
+			await _authentication.LogoutAsync();
 
 			return Ok(user);
 		}
@@ -144,6 +165,14 @@ namespace IntegorAuthorization.Controllers
 			IErrorConvertationResult error = _stringConverter.Convert(errorMessage)!;
 
 			return BadRequest(error);
+		}
+
+		private async Task<UserAccountInfoDto> LoginAsPublicAsync([FromBody] UserAccountDto user)
+		{
+			UserAccountInfoDto userPublic = _mapper.Map<UserAccountInfoDto>(user);
+			await _authentication.LoginAsync(userPublic);
+
+			return userPublic;
 		}
 	}
 }

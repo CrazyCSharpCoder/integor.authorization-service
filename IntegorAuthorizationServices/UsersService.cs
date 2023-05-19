@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.Storage;
+
+using IntegorLogicShared.Types.IntegorServices.Authorization;
+using IntegorLogicShared.IntegorServices.Authorization;
 
 using IntegorAuthorizationModel;
 
-using IntegorAuthorizationShared.Types;
 using IntegorAuthorizationShared.Dto.Users;
 using IntegorAuthorizationShared.Services;
-using IntegorAuthorizationShared.Helpers;
-
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace IntegorAuthorizationServices
 {
@@ -25,12 +25,12 @@ namespace IntegorAuthorizationServices
 		private IntegorAuthorizationDbContext _context;
 		private IMapper _mapper;
 
-		private UserRolesConverter _rolesHelper;
+		private UserRolesEnumConverter _rolesHelper;
 
 		public UsersService(
 			IntegorAuthorizationDbContext context,
 			IMapper mapper,
-			UserRolesConverter rolesHelper)
+			UserRolesEnumConverter rolesHelper)
 		{
 			_context = context;
 			_mapper = mapper;

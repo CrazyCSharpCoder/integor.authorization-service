@@ -22,21 +22,21 @@ namespace IntegorAuthorizationResponseDecoration.Decorators
 			_mapper = mapper;
 		}
 
-		public ResponseBodyDecorationResult Decorate(object? responseObject)
+		public ResponseObjectDecorationResult Decorate(object? responseObject)
 		{
 			if (responseObject is UserRole role)
-				return new ResponseBodyDecorationResult(ToFullPublicRole(role));
+				return new ResponseObjectDecorationResult(ToFullPublicRole(role));
 
 			if (responseObject is UserRoleShortDto shortRole)
-				return new ResponseBodyDecorationResult(ToShortPublicRole(shortRole));
+				return new ResponseObjectDecorationResult(ToShortPublicRole(shortRole));
 
 			if (responseObject is IEnumerable<UserRole> roles)
-				return new ResponseBodyDecorationResult(roles.Select(r => ToFullPublicRole(r)));
+				return new ResponseObjectDecorationResult(roles.Select(r => ToFullPublicRole(r)));
 
 			if (responseObject is IEnumerable<UserRoleShortDto> shortRoles)
-				return new ResponseBodyDecorationResult(shortRoles.Select(r => ToShortPublicRole(r)));
+				return new ResponseObjectDecorationResult(shortRoles.Select(r => ToShortPublicRole(r)));
 
-			return new ResponseBodyDecorationResult(false);
+			return new ResponseObjectDecorationResult(false);
 		}
 
 		private PublicDto.Roles.UserRoleFullDto ToFullPublicRole(UserRole role)

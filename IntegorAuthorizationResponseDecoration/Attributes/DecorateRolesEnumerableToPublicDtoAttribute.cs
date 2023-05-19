@@ -9,7 +9,7 @@ using IntegorAuthorizationResponseDecoration.Decorators;
 
 namespace IntegorAuthorizationResponseDecoration.Attributes
 {
-	public class DecorateRolesEnumerableToPublicDtoAttribute : ResponseBodyDecorationFilterFactory
+	public class DecorateRolesEnumerableToPublicDtoAttribute : ResponseObjectDecorationFilterFactory
 	{
 		public DecorateRolesEnumerableToPublicDtoAttribute() :
 			base(typeof(RolesEnumerableToPublicDtoDecorator))

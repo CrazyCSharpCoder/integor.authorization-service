@@ -1,27 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-using IntegorAspHelpers.Http;
-using IntegorAspHelpers.Middleware.WebApiResponse.Internal;
+using ExtensibleRefreshJwtAuthentication;
 
-using IntegorSharedAspHelpers.Http;
+using ExtensibleRefreshJwtAuthentication.Access;
+using ExtensibleRefreshJwtAuthentication.Refresh;
 
-using AdvancedJwtAuthentication.Access;
-using AdvancedJwtAuthentication.Refresh;
-
-using AdvancedJwtAuthentication.Services;
+using IntegorLogicShared.IntegorServices.Authorization;
 
 using IntegorAuthorizationAspShared.ConfigurationProviders;
-
-using IntegorAuthorizationAspServices;
-using IntegorAuthorizationAspServices.Authentication;
 using IntegorAuthorizationAspServices.ConfigurationProviders;
 
-using IntegorAuthorizationShared.Services;
-using IntegorAuthorizationShared.Helpers;
-
 using IntegorAuthorizationServices.DatabaseContext;
-
-using Microsoft.EntityFrameworkCore;
 
 namespace IntegorAuthorization.StartupServices
 {
@@ -30,38 +20,24 @@ namespace IntegorAuthorization.StartupServices
 
 	public static class InfrastructureServicesExtensions
 	{
-		public static void AddHttpContextServices(this IServiceCollection services)
+		public static IServiceCollection AddConfigurationProviders(this IServiceCollection services)
 		{
-			services.AddHttpContextAccessor();
-			services.AddScoped<IHttpContextProcessedMarker, HttpContextProcessedMarker>();
-		}
-
-		public static void AddConfigurationProviders(this IServiceCollection services)
-		{
-			services.AddSingleton<IAuthenticationConfigurationProvider, AuthenticationConfigurationProvider>();
+			return services.AddSingleton<IAuthenticationConfigurationProvider, AuthenticationConfigurationProvider>();
 		}
 
 		public static void AddAuthenticationSchemes(this IServiceCollection services)
 		{
-			services.AddAuthentication(JwtAccessAuthenticationDefaults.AuthenticationScheme)
-				.AddScheme<JwtAccessAuthenticationOptions, JwtAccessAuthenticationHandler>(
-					JwtAccessAuthenticationDefaults.AuthenticationScheme, options =>
+			services.AddAuthentication(AccessTokenAuthenticationDefaults.AuthenticationScheme)
+				.AddScheme<TokenAuthenticationOptions, AccessTokenAuthenticationHandler>(
+					AccessTokenAuthenticationDefaults.AuthenticationScheme, options =>
 					{
-						// TODO add options
+						options.AuthenticationType = AccessTokenAuthenticationDefaults.AuthenticationType;
 					})
-				.AddScheme<JwtRefreshAuthenticationOptions, JwtRefreshAuthenticationHandler>(
-					JwtRefreshAuthenticationDefaults.AuthenticationScheme, options =>
+				.AddScheme<TokenAuthenticationOptions, RefreshTokenAuthenticationHandler>(
+					RefreshTokenAuthenticationDefaults.AuthenticationScheme, options =>
 					{
-						// TODO add options
+						options.AuthenticationType = RefreshTokenAuthenticationDefaults.AuthenticationType;
 					});
-		}
-
-		public static void AddAuthenticationServices(this IServiceCollection services)
-		{
-			services.AddScoped<IHttpContextTokensAccessor, CookieTokensAccessor>();
-			services.AddScoped<IResolveTokensService, ResolveJwtService>();
-
-			services.AddScoped<IAuthenticationAbstractionService, AuthenticationAbstractionService>();
 		}
 
 		public static void AddDatabase(this IServiceCollection services, string connectionString)
@@ -82,7 +58,6 @@ namespace IntegorAuthorization.StartupServices
 
 		public static void AddSpecial(this IServiceCollection services)
 		{
-			services.AddSingleton<UserRolesConverter>();
 			services.AddScoped<ApplicationInitializer>();
 		}
 	}
