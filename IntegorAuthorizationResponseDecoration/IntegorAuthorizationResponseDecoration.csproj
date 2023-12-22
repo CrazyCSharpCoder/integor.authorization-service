@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="IntegorSharedResponseDecorators" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IntegorAuthorizationModel\IntegorAuthorizationModel.csproj" />
+    <ProjectReference Include="..\IntegorAuthorizationShared\IntegorAuthorizationShared.csproj" />
+  </ItemGroup>
+
+</Project>
